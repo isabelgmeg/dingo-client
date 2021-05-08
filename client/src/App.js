@@ -1,5 +1,5 @@
-import { Route, Switch } from 'react-router-dom';
-import Register from './components/RegisterForm/Register'
+import { Route } from 'react-router-dom';
+import RegisterForm from './components/RegisterForm/RegisterForm'
 
 
 import './App.css';
@@ -12,7 +12,7 @@ function App() {
         hola
       </p>
       <Route path="/register">
-      <Register/>
+      <RegisterForm/>
       </Route>
     </div>
   );
