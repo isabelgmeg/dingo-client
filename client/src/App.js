@@ -1,19 +1,35 @@
-import { Route } from 'react-router-dom';
-import RegisterForm from './components/RegisterForm/RegisterForm'
+import { Route, Link } from "react-router-dom";
 
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
 
-import './App.css';
+import Picture from "./components/Picture.jsx";
+import logo from "./assets/dingo_logo.png";
+
+import "./App.css";
 
 
 function App() {
   return (
     <div className="App">
-      <p>
-        hola
-      </p>
-      <Route path="/register">
-      <RegisterForm/>
-      </Route>
+      <div className="splash_container">
+        <div className="splash_container_logo">
+          
+          <Link to="/">
+          <img src={logo} alt={logo} />
+          </Link>
+        </div>
+        <h1>Getting Healthy made easy</h1>
+        <Route path="/register">
+          <button className="splash_container_registerButton">
+          <RegisterPage />
+          </button>
+        </Route>
+
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+      </div>
     </div>
   );
 }
