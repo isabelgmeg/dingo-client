@@ -1,0 +1,45 @@
+@import './styles/utilities';
+
+.App {
+  text-align: center;
+
+}
+
+.splash_container{
+  height: 926px;
+  width: 428px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url('./assets/splash_background.png');
+    img{
+        width: 222px;
+        height: 236px;
+        margin-bottom: 30px;
+    }
+    h1{
+      @include text-14-white;
+      margin: 20px;
+    }
+    .splash_container_registerButton{
+      @include call-action-button;
+      margin: 20px;
+      &:hover{
+          background-color: #ffc649;
+          transition-duration: 0.4s;
+          cursor: pointer;
+        }
+      }
+    .splash_container_link{
+      margin-top: 20px;
+      display: block;
+      text-decoration: none;
+      @include text-16-white
+    }
+}
+  
+
+  .splash_content{
+    padding: 20px;
+    padding-top: 40%;
+  }
