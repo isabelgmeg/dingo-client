@@ -1,0 +1,48 @@
+@import "../styles/utilities";
+
+.register_content {
+  max-width: 426px;
+}
+.register_container {
+  text-align: center;
+  flex-direction: column;
+  height: 926px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url("../assets/forms_background.png");
+  img {
+    width: 111px;
+    height: auto;
+    margin-bottom: 30px;
+    margin-top: 60px;
+  }
+  h1 {
+    @include text-18-tittle;
+    margin: 20px;
+  }
+  a {
+    @include text-16-orange-link;
+    text-decoration: none;
+    &:hover {
+      color: #ffc649;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+  }
+  &_register {
+    margin: 40px;
+  }
+  &_question {
+    margin-top: 20px;
+    text-decoration: none;
+    @include text-16-gray;
+  }
+}
+
+.register_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}

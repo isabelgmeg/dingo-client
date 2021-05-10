@@ -4,6 +4,14 @@ import { useForm } from "react-hook-form";
 import { postRegister } from "../../services/auth";
 import { errorMessage } from "../../constants/formErrors";
 
+import "./RegisterForm.scss";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
+
 export default function RegisterForm() {
   const {
     handleSubmit,
@@ -12,19 +20,23 @@ export default function RegisterForm() {
   } = useForm();
   console.log(errors);
 
-
   const handleFormNewUserSubmit = (formValues) => {
     const apiRes = postRegister(formValues);
-    console.log(apiRes.data)
+    console.log(apiRes.data);
   };
 
   return (
     <div className="registerForm_Container">
       <form onSubmit={handleSubmit(handleFormNewUserSubmit)}>
+        <FontAwesomeIcon
+          icon={faUser}
+          className="loginForm_Container_icon"
+        />
         <input
+          className="registerForm_Container_input"
           id="name"
           type="text"
-          placeholder="name"
+          placeholder="Name"
           {...register("name", {
             required: true,
             maxLength: 80,
@@ -37,10 +49,15 @@ export default function RegisterForm() {
         {errors.name && errors.name.type === "minLength" ? (
           <p>{errorMessage.nameFieldLenght}</p>
         ) : null}
+        <FontAwesomeIcon
+          icon={faUser}
+          className="loginForm_Container_icon"
+        />
         <input
+          className="registerForm_Container_input"
           id="surname"
           type="text"
-          placeholder="surname"
+          placeholder="Surname"
           {...register("surname", {
             required: false,
             maxLength: 100,
@@ -52,10 +69,14 @@ export default function RegisterForm() {
         {errors.name && errors.surname.type === "minLength" ? (
           <p>{errorMessage.surnameFieldLenght}</p>
         ) : null}
-        <input
+        <FontAwesomeIcon
+          icon={faEnvelope}
+          className="loginForm_Container_icon"
+        />
+        <input className="registerForm_Container_input"
           id="email"
           type="email"
-          placeholder="email"
+          placeholder="Email"
           {...register("email", {
             required: true,
             pattern: /^\S+@\S+$/i,
@@ -67,14 +88,18 @@ export default function RegisterForm() {
         {errors.email && errors.email.type === "pattern" ? (
           <p>{errorMessage.emailPattern}</p>
         ) : null}
-        <input
+        <FontAwesomeIcon
+          icon={faLock}
+          className="loginForm_Container_icon"
+        />
+        <input className="registerForm_Container_input"
           id="password"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           {...register("password", {
             required: true,
             maxLength: 30,
-            minLength: 4
+            minLength: 4,
           })}
         />
         {errors.password && errors.password.type === "required" ? (
@@ -87,7 +112,9 @@ export default function RegisterForm() {
           <p>{errorMessage.passwordFieldLenght}</p>
         ) : null}
 
-        <button type="submit">Register</button>
+        <button className="registerForm_Container_button" type="submit">
+          Register
+        </button>
       </form>
     </div>
   );
