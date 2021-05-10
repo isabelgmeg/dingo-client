@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans&display=swap');
+
 
 //SASS SYNTAX
 $base-lime: #d6e294;
@@ -7,4 +9,56 @@ $dark-gray: #4f5052;
 $white: #ffffff;
 $off-white: #f7f8fc;
 $orange: #f7a800;
+$light-orange: #ffc649;
 $turquoise: #128fae;
+
+@mixin align-center {
+    display: flex;
+    align-items: center;
+}
+//textos modern app navy
+@mixin modern-display {
+    font: {
+      family: 'Abril Fatface', cursive;
+      size: 22px;
+    }
+    color: $dark-gray;
+}
+
+//textos pequeños splash/login/register
+@mixin text-14-white {
+    font: {
+      family: 'Open Sans', sans-serif;
+      size: 14px;
+    }
+    color: $white;
+
+}
+
+@mixin text-16-white {
+    font: {
+      family: 'Open Sans', sans-serif;
+      size: 16px;
+    }
+    color: $white;
+    text-decoration: none;
+
+}
+
+@mixin text-18-white-buttons {
+    font: {
+      family: 'Open Sans', sans-serif;
+      size: 18px;
+    }
+    color: $white;
+
+}
+
+@mixin call-action-button {
+    width: 315px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: $orange;
+    border: none;
+    @include text-18-white-buttons();
+}

@@ -1,5 +1,6 @@
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 
+import SplashPage from "./pages/SplashPage"
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 
@@ -8,27 +9,22 @@ import logo from "./assets/dingo_logo.png";
 
 import "./App.css";
 
-
 function App() {
   return (
     <div className="App">
-      <div className="splash_container">
-        <div className="splash_container_logo">
-          
-          <Link to="/">
-          <img src={logo} alt={logo} />
-          </Link>
-        </div>
-        <h1>Getting Healthy made easy</h1>
-        <Route path="/register">
-          <button className="splash_container_registerButton">
-          <RegisterPage />
-          </button>
-        </Route>
+      <div className="main">
+        <Switch>
+          <Route exact path="/">
+            <SplashPage />
+          </Route>
+          <Route exact path="/register">
+            <RegisterPage />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
 
-        <Route path="/login">
-          <LoginPage />
-        </Route>
+        </Switch>
       </div>
     </div>
   );
