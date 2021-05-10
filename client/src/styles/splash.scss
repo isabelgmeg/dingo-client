@@ -1,11 +1,11 @@
 @import '../styles/utilities';
 
 .splash_container{
+  text-align: center;
   height: 926px;
   width: 428px;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
   background-image: url('../assets/splash_background.png');
     img{
         width: 222px;
@@ -18,14 +18,13 @@
     }
     .splash_container_registerButton{
       @include call-action-button;
-      margin: 20px;
       &:hover{
           background-color: #ffc649;
           transition-duration: 0.4s;
           cursor: pointer;
         }
       }
-    .splash_container_link{
+    a{
       margin-top: 20px;
       display: block;
       text-decoration: none;

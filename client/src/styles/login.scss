@@ -1,0 +1,47 @@
+@import '../styles/utilities';
+
+.login_content{
+  max-width: 426px;
+}
+.login_container{
+  text-align: center;
+  flex-direction: column;
+  height: 926px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url('../assets/forms_background.png');
+    img{
+        width: 111px;
+        height: auto;
+        margin-bottom: 30px;
+        margin-top: 120px;
+
+    }
+    h1{
+      @include text-18-tittle;
+      margin: 20px;
+    }
+    a{
+      @include text-16-orange-link;
+      margin: 20px;
+      text-decoration: none;
+      &:hover{
+          color: #ffc649;
+          transition-duration: 0.4s;
+          cursor: pointer;
+        }
+      }
+    &_question{
+      margin-top: 20px;
+      text-decoration: none;
+      @include text-16-gray
+    }
+}
+  
+
+  .login_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+  }

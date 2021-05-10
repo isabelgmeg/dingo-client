@@ -1,7 +1,4 @@
-import { Route, Link } from "react-router-dom";
-
-import RegisterPage from "./RegisterPage";
-import LoginPage from "./LoginPage";
+import { Link } from "react-router-dom";
 
 import logo from "../assets/dingo_logo.png";
 
@@ -12,12 +9,12 @@ export default function SplashPage() {
     <div className="splash_container">
       <div className="splash_content">
         <Link className="splash_container_logo" to="/">
-          <img classNmae="splash_container_logo_image" src={logo} alt={logo} />
+          <img className="splash_container_logo_image" src={logo} alt={logo} />
         </Link>
         <h1>Getting Healthy made easy</h1>
         <Link className="splash_container_button" to="/register">
           <button className="splash_container_registerButton">
-            Register!🔥
+            Register
           </button>
         </Link>
         <Link to="/login">
