@@ -46,6 +46,7 @@ export default function LoginForm() {
         {errors.email && errors.email.type === "pattern" ? (
           <p>{errorMessage.emailPattern}</p>
         ) : null}
+        <br></br>
         <FontAwesomeIcon
           icon={faLock}
           className="loginForm_Container_icon"
