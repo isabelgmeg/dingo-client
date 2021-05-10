@@ -17,7 +17,7 @@ export default function SplashPage() {
         <h1>Getting Healthy made easy</h1>
         <Link className="splash_container_button" to="/register">
           <button className="splash_container_registerButton">
-            Register!🔥
+            Register
           </button>
         </Link>
         <Link to="/login">

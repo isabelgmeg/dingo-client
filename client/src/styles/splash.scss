@@ -1,11 +1,11 @@
 @import '../styles/utilities';
 
 .splash_container{
+  text-align: center;
   height: 926px;
   width: 428px;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
   background-image: url('../assets/splash_background.png');
     img{
         width: 222px;
