@@ -23,13 +23,15 @@
     }
     a{
       @include text-16-orange-link;
-      margin: 20px;
       text-decoration: none;
       &:hover{
           color: #ffc649;
           transition-duration: 0.4s;
           cursor: pointer;
         }
+      }
+      &_register {
+        margin: 40px;
       }
     &_question{
       margin-top: 20px;
