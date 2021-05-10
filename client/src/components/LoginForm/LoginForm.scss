@@ -1,0 +1,30 @@
+@import "../../styles/utilities.scss";
+
+.loginForm_Container {
+  &_input {
+    @include text-14-white;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+    width: 300px;
+    display: inline;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $medium-gray;
+    padding-bottom: 5px;
+  }
+  &_button {
+    @include call-action-button;
+    margin-top: 120px;
+  }
+  &_icon {
+    color: $white;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+input::placeholder {
+  color: $white;
+}

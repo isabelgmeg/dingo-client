@@ -18,14 +18,13 @@
     }
     .splash_container_registerButton{
       @include call-action-button;
-      margin: 20px;
       &:hover{
           background-color: #ffc649;
           transition-duration: 0.4s;
           cursor: pointer;
         }
       }
-    .splash_container_link{
+    a{
       margin-top: 20px;
       display: block;
       text-decoration: none;

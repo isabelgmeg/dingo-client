@@ -11,6 +11,7 @@ $off-white: #f7f8fc;
 $orange: #f7a800;
 $light-orange: #ffc649;
 $turquoise: #128fae;
+$medium-gray: #b2b7c6;
 
 @mixin align-center {
     display: flex;
@@ -45,6 +46,15 @@ $turquoise: #128fae;
 
 }
 
+@mixin text-16-gray {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 16px;
+  }
+  color: $medium-gray;
+  text-decoration: none;
+}
+
 @mixin text-18-white-buttons {
     font: {
       family: 'Open Sans', sans-serif;
@@ -54,9 +64,38 @@ $turquoise: #128fae;
 
 }
 
+@mixin text-16-offwhite-link {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 16px;
+  }
+  color: $off-white;
+
+}
+
+@mixin text-18-tittle {
+  font: {
+    family: 'Open Sans', sans-serif;
+    weight: bold;
+    size: 16px;
+  }
+  color: $off-white;
+
+}
+
+@mixin text-16-orange-link {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 16px;
+  }
+  color: $orange;
+
+}
+
 @mixin call-action-button {
     width: 315px;
     height: 50px;
+    margin: 20px;
     border-radius: 15px;
     background-color: $orange;
     border: none;
