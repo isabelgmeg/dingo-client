@@ -1,13 +1,10 @@
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import SplashPage from "./pages/SplashPage"
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 
-import Picture from "./components/Picture.jsx";
-import logo from "./assets/dingo_logo.png";
-
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
