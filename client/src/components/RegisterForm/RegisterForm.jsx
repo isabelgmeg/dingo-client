@@ -30,7 +30,7 @@ export default function RegisterForm() {
       <form onSubmit={handleSubmit(handleFormNewUserSubmit)}>
         <FontAwesomeIcon
           icon={faUser}
-          className="loginForm_Container_icon"
+          className="registerForm_Container_icon"
         />
         <input
           className="registerForm_Container_input"
@@ -51,7 +51,7 @@ export default function RegisterForm() {
         ) : null}
         <FontAwesomeIcon
           icon={faUser}
-          className="loginForm_Container_icon"
+          className="registerForm_Container_icon"
         />
         <input
           className="registerForm_Container_input"
@@ -71,7 +71,7 @@ export default function RegisterForm() {
         ) : null}
         <FontAwesomeIcon
           icon={faEnvelope}
-          className="loginForm_Container_icon"
+          className="registerForm_Container_icon"
         />
         <input className="registerForm_Container_input"
           id="email"
@@ -90,7 +90,7 @@ export default function RegisterForm() {
         ) : null}
         <FontAwesomeIcon
           icon={faLock}
-          className="loginForm_Container_icon"
+          className="registerForm_Container_icon"
         />
         <input className="registerForm_Container_input"
           id="password"

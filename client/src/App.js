@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import SplashPage from "./pages/SplashPage"
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import BiometricPage from "./pages/BiometricPage"
 
 import "./App.scss";
 
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/login">
             <LoginPage />
+          </Route>
+          <Route exact path="/biometric">
+            <BiometricPage />
           </Route>
 
         </Switch>
