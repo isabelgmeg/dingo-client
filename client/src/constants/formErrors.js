@@ -5,4 +5,6 @@ export const errorMessage = {
     nameFieldLenght: 'name must be at least 2 characters long',
     surnameFieldLenght: 'name must be at least 2 characters long',
     passwordFieldLenght: 'password must contain 4-30 characters',
+    minAge:'you must be above 16 years to use this app',
+    
   };
