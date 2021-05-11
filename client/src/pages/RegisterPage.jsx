@@ -22,7 +22,7 @@ export default function RegisterPage() {
           <span className="register_container_question">
             Already registered?
           </span>
-          <Link to="/register">
+          <Link to="/login">
             <a className="register_container_link" href="/login">
               Sign in
             </a>
