@@ -12,69 +12,79 @@ export default function BiometricForm() {
     handleSubmit,
     control,
     register,
+    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => console.log(data);
 
   console.log(errors);
-
-  //   {
-  //     "gender": "male",
-  //     "age": 30,
-  //     "weight": 56,
-  //     "height": 172,
-  //     "objectives": "add-muscle",
-  //     "intolerances": "none",
-  //     "elabTimePerDay": 130,
-  //     "mealsPerDay": 2
-  // }
+  const [age] = watch(["age"]);
+  console.log(age);
 
   return (
     <div className="biometricForm_Container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* <Controller
-          control={control}
-          className="biometricForm_Container_input"
-          id="age"
-          type="range"
-          name="age"
-          defaultValue={50}
-          render={({ field: { value, onChange } }) => (
-            <Slider
-              axis={"x"}
-              xmax={110}
-              xmin={16}
-              xstep={1}
-              onChange={({ x }) => {
-                onChange(x);
-              }}
-              x={value}
-            />
-          )}
-        /> */}
+      <form className="biometricForm_form"
+      onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <p>{age}</p>
+          <Controller
+            control={control}
+            className="biometricForm_Container_input"
+            id="age2"
+            type="range"
+            name="age2"
+            defaultValue={50}
+            render={({ field: { value, onChange } }) => (
+              <Slider
+                axis={"x"}
+                xmax={110}
+                xmin={16}
+                xstep={1}
+                onChange={({ x }) => {
+                  onChange(x);
+                }}
+                x={value}
+              />
+            )}
+          />
+        </div>
         {/* {errors.age && errors.age.type === "required" ? (
           <p>{errorMessage.required}</p>
         ) : null}
         {errors.age && errors.age.type === "minAge" ? (
           <p>{errorMessage.minAge}</p>
-        ) : null} */}
+        ) : null}
         {/* GENDER */}
-        <label htmlFor="gender">Select your gender</label> <br></br>
+        <label className="biometricForm_Container_label" htmlFor="gender">
+          Select your gender
+        </label>{" "}
+        <br></br>
         <select
           className="biometricForm_Container_input"
           defaultValue="notSpecified"
           {...register("gender", { required: true })}
         >
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="notSpecified" defaultValue>
+          <option className="biometricForm_Container_select" value="male">
+            Male
+          </option>
+          <option className="biometricForm_Container_select" value="female">
+            Female
+          </option>
+          <option
+            className="biometricForm_Container_select"
+            value="notSpecified"
+            defaultValue
+          >
             Just me
           </option>
         </select>
         <br></br>
         {/* AGE */}
-        <label htmlFor="age">Select your age</label> <br></br>
+        <label className="biometricForm_Container_label" htmlFor="age">
+          Select your age
+        </label>{" "}
+        <br></br>
         <input
           className="biometricForm_Container_input"
           type="number"
@@ -83,7 +93,10 @@ export default function BiometricForm() {
         />
         <br></br>
         {/* HEIGHT */}
-        <label htmlFor="height">Add your height in cm</label> <br></br>
+        <label className="biometricForm_Container_label" htmlFor="height">
+          Add your height in cm
+        </label>{" "}
+        <br></br>
         <input
           className="biometricForm_Container_input"
           id="height"
@@ -93,7 +106,10 @@ export default function BiometricForm() {
         />
         <br></br>
         {/* WEIGHT */}
-        <label htmlFor="weight">Add your weight in kg</label> <br></br>
+        <label className="biometricForm_Container_label" htmlFor="weight">
+          Add your weight in kg
+        </label>{" "}
+        <br></br>
         <input
           className="biometricForm_Container_input"
           id="weight"
@@ -103,7 +119,10 @@ export default function BiometricForm() {
         />
         <br></br>
         {/* OBJECTIVES */}
-        <label htmlFor="objectives">Select your objective</label> <br></br>
+        <label className="biometricForm_Container_label" htmlFor="objectives">
+          Select your objective
+        </label>{" "}
+        <br></br>
         <select
           className="biometricForm_Container_input"
           id="objectives"
@@ -111,14 +130,79 @@ export default function BiometricForm() {
           placeholder="Select your objective"
           {...register}
         >
-          <option value="add-muscle">add-muscle</option>
-          <option value="lose-weight"> lose-weight</option>
-          <option value="eat-healthier"> eat-healthier</option>
+          <option className="biometricForm_Container_select" value="add-muscle">
+            add-muscle
+          </option>
+          <option
+            className="biometricForm_Container_select"
+            value="lose-weight"
+            defaultValue
+          >
+            {" "}
+            lose-weight
+          </option>
+          <option
+            className="biometricForm_Container_select"
+            value="eat-healthier"
+          >
+            {" "}
+            eat-healthier
+          </option>
         </select>
         <br></br>
         {/* INTOLERANCES */}
+        <label className="biometricForm_Container_label" htmlFor="objectives">
+          Select your intolerances
+        </label>{" "}
+        <br></br>
+        <input
+          className="biometricForm_Container_input"
+          type="checkbox"
+          id="gluten-intolerant"
+          {...register("gluten-intolerant")}
+        />
+        <label
+          className="biometricForm_Container_input_checkbox"
+          htmlFor="gluten-intolerant"
+        >
+          Gluten
+        </label>
+        <br></br>
+        <input
+          className="biometricForm_Container_input"
+          type="checkbox"
+          id="lactose-intolerant"
+          {...register("lactose-intolerant")}
+        />
+        <label
+          className="biometricForm_Container_input_checkbox"
+          htmlFor="lactose-intolerant"
+        >
+          Lactose
+        </label>
+        <br></br>
+        <input
+          className="biometricForm_Container_input"
+          type="checkbox"
+          id="nut-alergy"
+          {...register("nut-alergy")}
+        />
+        <label className="biometricForm_Container_input_checkbox" htmlFor="nut-alergy">
+          Nuts
+        </label>
+        <br></br>
+        <input
+          className="biometricForm_Container_input"
+          type="checkbox"
+          id="fructose"
+          {...register("fructose")}
+        />
+        <label className="biometricForm_Container_input_checkbox" htmlFor="fructose">
+          Fructose
+        </label>
+        <br></br>
         {/* ELABTIMEPERDAY */}
-        <label htmlFor="objectives">
+        <label className="biometricForm_Container_label" htmlFor="objectives">
           Add your available daily time to cook
         </label>{" "}
         <br></br>
@@ -131,7 +215,10 @@ export default function BiometricForm() {
         />
         <br></br>
         {/* MEALSPERDAY */}
-        <label htmlFor="mealsPerDay">Add meals per day</label> <br></br>
+        <label className="biometricForm_Container_label" htmlFor="mealsPerDay">
+          Add meals per day
+        </label>{" "}
+        <br></br>
         <input
           className="biometricForm_Container_input"
           id="mealsPerDay"
@@ -140,7 +227,9 @@ export default function BiometricForm() {
           {...register("mealsPerDay", { required: true, max: 6, min: 1 })}
         />
         <br></br>
-        <input type="submit" />
+        <button className="biometricForm_Container_button" type="submit">
+          Register
+        </button>
       </form>
     </div>
   );
