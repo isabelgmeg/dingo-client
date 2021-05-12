@@ -1,5 +1,8 @@
 @import "../../styles/utilities.scss";
-
+.registerForm_form{
+  margin: 0 auto;
+  width: 90%;
+}
 .registerForm_Container {
   &_input {
     @include text-14-white;
@@ -9,7 +12,7 @@
     background: transparent;
     border-bottom: 1px solid $medium-gray;
     padding-bottom: 5px;
-    width: 275px;
+    width: 80%;
     display: inline;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -21,7 +24,7 @@
   }
   &_icon {
     color: $white;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-right: 20px;
   }
 }

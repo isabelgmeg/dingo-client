@@ -27,7 +27,7 @@ export default function RegisterForm() {
 
   return (
     <div className="registerForm_Container">
-      <form onSubmit={handleSubmit(handleFormNewUserSubmit)}>
+      <form className="registerForm_form"onSubmit={handleSubmit(handleFormNewUserSubmit)}>
         <FontAwesomeIcon
           icon={faUser}
           className="registerForm_Container_icon"

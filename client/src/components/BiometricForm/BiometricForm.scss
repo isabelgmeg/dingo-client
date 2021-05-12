@@ -1,16 +1,5 @@
 @import "../../styles/utilities.scss";
 
-$base-lime: #d6e294;
-$light-lime: #f0f7c1;
-$dark-navy: #18223d;
-$dark-gray: #4f5052;
-$white: #ffffff;
-$off-white: #f7f8fc;
-$orange: #f7a800;
-$light-orange: #ffc649;
-$turquoise: #128fae;
-$medium-gray: #b2b7c6;
-
 .biometricForm_form{
     margin: 0 auto;
     width: 80%;
@@ -46,7 +35,6 @@ $medium-gray: #b2b7c6;
   &_button {
     @include call-action-button;
     margin-top: 60px;
-    margin-left: -20px;
   }
   &_icon {
     color: $white;
@@ -72,4 +60,7 @@ input::placeholder {
 }
 label.biometricForm_Container_input_checkbox{
     @include text-16-white;
+}
+p{
+  @include errorMessage
 }

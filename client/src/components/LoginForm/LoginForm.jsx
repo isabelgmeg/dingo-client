@@ -26,7 +26,8 @@ export default function LoginForm() {
 
   return (
     <div className="loginForm_Container">
-      <form onSubmit={handleSubmit(handleFormLoginSumbit)}>
+      <form className="loginForm_form"
+        onSubmit={handleSubmit(handleFormLoginSumbit)}>
         <FontAwesomeIcon
           icon={faEnvelope}
           className="loginForm_Container_icon"

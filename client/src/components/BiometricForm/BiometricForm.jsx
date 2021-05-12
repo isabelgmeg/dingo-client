@@ -24,37 +24,14 @@ export default function BiometricForm() {
 
   return (
     <div className="biometricForm_Container">
-      <form className="biometricForm_form"
-      onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <p>{age}</p>
-          <Controller
-            control={control}
-            className="biometricForm_Container_input"
-            id="age2"
-            type="range"
-            name="age2"
-            defaultValue={50}
-            render={({ field: { value, onChange } }) => (
-              <Slider
-                axis={"x"}
-                xmax={110}
-                xmin={16}
-                xstep={1}
-                onChange={({ x }) => {
-                  onChange(x);
-                }}
-                x={value}
-              />
-            )}
-          />
-        </div>
+      <form className="biometricForm_form" onSubmit={handleSubmit(onSubmit)}>
         {/* {errors.age && errors.age.type === "required" ? (
           <p>{errorMessage.required}</p>
         ) : null}
         {errors.age && errors.age.type === "minAge" ? (
           <p>{errorMessage.minAge}</p>
         ) : null}
+
         {/* GENDER */}
         <label className="biometricForm_Container_label" htmlFor="gender">
           Select your gender
@@ -79,6 +56,9 @@ export default function BiometricForm() {
             Just me
           </option>
         </select>
+        {errors.gender && errors.gender.type === "required" ? (
+          <p>{errorMessage.required}</p>
+        ) : null}
         <br></br>
         {/* AGE */}
         <label className="biometricForm_Container_label" htmlFor="age">
@@ -89,8 +69,17 @@ export default function BiometricForm() {
           className="biometricForm_Container_input"
           type="number"
           placeholder="Select your age"
-          {...register("age", { required: true, max: 110, min: 1 })}
+          {...register("age", { required: true, max: 110, min: 16 })}
         />
+        {errors.age && errors.age.type === "required" ? (
+          <p>{errorMessage.required}</p>
+        ) : null}
+        {errors.age && errors.age.type === "min" ? (
+          <p>{errorMessage.minAge}</p>
+        ) : null}
+        {errors.age && errors.age.type === "max" ? (
+          <p>{errorMessage.maxAge}</p>
+        ) : null}
         <br></br>
         {/* HEIGHT */}
         <label className="biometricForm_Container_label" htmlFor="height">
@@ -104,6 +93,15 @@ export default function BiometricForm() {
           placeholder="Select your height in cm"
           {...register("height", { required: true, max: 250, min: 50 })}
         />
+        {errors.height && errors.height.type === "required" ? (
+          <p>{errorMessage.required}</p>
+        ) : null}
+        {errors.height && errors.height.type === "min" ? (
+          <p>{errorMessage.minAge}</p>
+        ) : null}
+        {errors.height && errors.height.type === "max" ? (
+          <p>{errorMessage.maxHeight}</p>
+        ) : null}
         <br></br>
         {/* WEIGHT */}
         <label className="biometricForm_Container_label" htmlFor="weight">
@@ -117,6 +115,15 @@ export default function BiometricForm() {
           placeholder="Select your weight in kg"
           {...register("weight", { required: true, max: 300, min: 20 })}
         />
+        {errors.weight && errors.weight.type === "required" ? (
+          <p>{errorMessage.required}</p>
+        ) : null}
+        {errors.weight && errors.weight.type === "min" ? (
+          <p>{errorMessage.minWeight}</p>
+        ) : null}
+        {errors.weight && errors.weight.type === "max" ? (
+          <p>{errorMessage.maxWeight}</p>
+        ) : null}
         <br></br>
         {/* OBJECTIVES */}
         <label className="biometricForm_Container_label" htmlFor="objectives">
@@ -149,6 +156,9 @@ export default function BiometricForm() {
             eat-healthier
           </option>
         </select>
+        {errors.objectives && errors.objectives.type === "required" ? (
+          <p>{errorMessage.required}</p>
+        ) : null}
         <br></br>
         {/* INTOLERANCES */}
         <label className="biometricForm_Container_label" htmlFor="objectives">
@@ -187,7 +197,10 @@ export default function BiometricForm() {
           id="nut-alergy"
           {...register("nut-alergy")}
         />
-        <label className="biometricForm_Container_input_checkbox" htmlFor="nut-alergy">
+        <label
+          className="biometricForm_Container_input_checkbox"
+          htmlFor="nut-alergy"
+        >
           Nuts
         </label>
         <br></br>
@@ -197,13 +210,19 @@ export default function BiometricForm() {
           id="fructose"
           {...register("fructose")}
         />
-        <label className="biometricForm_Container_input_checkbox" htmlFor="fructose">
+        <label
+          className="biometricForm_Container_input_checkbox"
+          htmlFor="fructose"
+        >
           Fructose
         </label>
         <br></br>
         {/* ELABTIMEPERDAY */}
-        <label className="biometricForm_Container_label" htmlFor="objectives">
-          Add your available daily time to cook
+        <label
+          className="biometricForm_Container_label"
+          htmlFor="elabTimePerDay"
+        >
+          Add your available daily time to cook in minutes
         </label>{" "}
         <br></br>
         <input
@@ -211,8 +230,17 @@ export default function BiometricForm() {
           id="elabTimePerDay"
           type="number"
           placeholder="Minutes per day available to cook"
-          {...register("elabTimePerDay", { max: 400, min: 7 })}
+          {...register("elabTimePerDay", { max: 400, min: 20 })}
         />
+        {errors.elabTimePerDay && errors.elabTimePerDay.type === "required" ? (
+          <p>{errorMessage.required}</p>
+        ) : null}
+        {errors.elabTimePerDay && errors.elabTimePerDay.type === "max" ? (
+          <p>{errorMessage.maxElabTimePerDay}</p>
+        ) : null}
+        {errors.elabTimePerDay && errors.elabTimePerDay.type === "min" ? (
+          <p>{errorMessage.minElabTimePerDay}</p>
+        ) : null}
         <br></br>
         {/* MEALSPERDAY */}
         <label className="biometricForm_Container_label" htmlFor="mealsPerDay">
@@ -224,8 +252,17 @@ export default function BiometricForm() {
           id="mealsPerDay"
           type="number"
           placeholder="Number of meals to cook er day"
-          {...register("mealsPerDay", { required: true, max: 6, min: 1 })}
+          {...register("mealsPerDay", { required: true, max: 6, min: 2 })}
         />
+        {errors.mealsPerDay && errors.mealsPerDay.type === "required" ? (
+          <p>{errorMessage.required}</p>
+        ) : null}
+        {errors.mealsPerDay && errors.mealsPerDay.type === "max" ? (
+          <p>{errorMessage.maxMealsPerDay}</p>
+        ) : null}
+        {errors.mealsPerDay && errors.mealsPerDay.type === "min" ? (
+          <p>{errorMessage.minMealsPerDay}</p>
+        ) : null}
         <br></br>
         <button className="biometricForm_Container_button" type="submit">
           Register
