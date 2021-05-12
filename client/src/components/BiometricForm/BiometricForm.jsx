@@ -265,7 +265,7 @@ export default function BiometricForm() {
         ) : null}
         <br></br>
         <button className="biometricForm_Container_button" type="submit">
-          Register
+          Submit
         </button>
       </form>
     </div>
