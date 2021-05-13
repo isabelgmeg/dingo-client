@@ -17,6 +17,20 @@ export default function SliderComponent({ axis, xmax, xmin, xstep, onChange, val
     );
   }
 
+  // const {
+  //   handleSubmit,
+  //   control,
+  //   register,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm();
+
+  // const onSubmit = (data) => console.log(data);
+
+  // console.log(errors);
+  // const [age] = watch(["age"]);
+  // console.log(age);
+
 //   <div>
 //   <p>{age}</p>
 //   <Controller
