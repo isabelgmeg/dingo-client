@@ -1,0 +1,66 @@
+@import "../../styles/utilities.scss";
+
+.biometricForm_form{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.biometricForm_Container {
+  background-color: $light-orange;
+  align-items: center;
+  text-align: justify;
+  padding: 30px;
+  &_label {
+    @include modern-display-tittle;
+    color: $dark-gray;
+  }
+  &_input[type="checkbox"] {
+    margin: 10px;
+    width: 20px;
+  }
+  &_input {
+    @include text-14-white;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    background: transparent;
+    border-bottom: 1px solid $orange;
+    padding-bottom: 5px;
+    width: 275px;
+    display: inline;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: solid;
+  }
+  &_button {
+    @include call-action-button;
+    margin-top: 60px;
+  }
+  &_icon {
+    color: $white;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+.css-3g5hux-Slider {
+  position: absolute;
+  background-color: #f68600;
+  border-radius: 5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  top: 0;
+  height: 100%;
+}
+
+input::placeholder {
+  color: $white;
+}
+label.biometricForm_Container_input_checkbox{
+    @include text-16-white;
+}
+p{
+  @include errorMessage
+}

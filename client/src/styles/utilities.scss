@@ -26,6 +26,13 @@ $medium-gray: #b2b7c6;
     color: $dark-gray;
 }
 
+@mixin modern-display-tittle {
+  font: {
+    family: 'Abril Fatface', cursive;
+    size: 18px;
+  }
+}
+
 //textos pequeños splash/login/register
 @mixin text-14-white {
     font: {
@@ -93,11 +100,16 @@ $medium-gray: #b2b7c6;
 }
 
 @mixin call-action-button {
-    width: 315px;
+    width: 90%;
     height: 50px;
-    margin: 20px;
     border-radius: 15px;
     background-color: $orange;
     border: none;
     @include text-18-white-buttons();
+}
+@mixin errorMessage {
+    color: #83838378;
+      background-color:#5656561c;
+      border-radius: 12px;
+      padding: 5px;
 }
