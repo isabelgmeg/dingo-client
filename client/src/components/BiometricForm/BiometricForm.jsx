@@ -35,7 +35,7 @@ export default function BiometricForm() {
   };
 
   const onSubmit = (data) => {
-    checkIntolerances(data);
+     checkIntolerances(data);
     let userBiometrics = {
       gender: data.gender,
       age: data.age,
@@ -47,7 +47,7 @@ export default function BiometricForm() {
       mealsPerDay: data.mealsPerDay,
     };
     postBiometrics(userBiometrics);
-    console.log(postBiometrics(userBiometrics))
+    console.log( "postBiometrics", postBiometrics(userBiometrics))
   };
 
   return (
