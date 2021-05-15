@@ -1,7 +1,7 @@
-import React from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../context/User";
 
 import { useForm } from "react-hook-form";
-import { postRegister } from "../../services/auth";
 import { errorMessage } from "../../constants/formErrors";
 
 import "./RegisterForm.scss";
@@ -11,30 +11,38 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-
 export default function RegisterForm() {
+  const { registerUser, errorRegister } = useContext(UserContext);
+
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
-  console.log(errors);
 
-  const handleFormNewUserSubmit = (formValues) => {
-    const apiRes = postRegister(formValues);
-    console.log(apiRes.data);
+  const HandleFormNewUserSubmit = (formValues, event) => {
+    registerUser(formValues)
+      .then(() => {
+        event.target.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log(errorRegister)
+      });
   };
 
   return (
     <div className="registerForm_Container">
-      <form className="registerForm_form"onSubmit={handleSubmit(handleFormNewUserSubmit)}>
+      <form
+        className="registerForm_form"
+        onSubmit={handleSubmit(HandleFormNewUserSubmit)}
+      >
         <FontAwesomeIcon
           icon={faUser}
           className="registerForm_Container_icon"
         />
         <input
           className="registerForm_Container_input"
-          id="name"
           type="text"
           placeholder="Name"
           {...register("name", {
@@ -55,26 +63,19 @@ export default function RegisterForm() {
         />
         <input
           className="registerForm_Container_input"
-          id="surname"
           type="text"
           placeholder="Surname"
           {...register("surname", {
-            required: false,
+            minLength: 1,
             maxLength: 100,
           })}
         />
-        {errors.surname && errors.surname.type === "required" ? (
-          <p>{errorMessage.required}</p>
-        ) : null}
-        {errors.name && errors.surname.type === "minLength" ? (
-          <p>{errorMessage.surnameFieldLenght}</p>
-        ) : null}
         <FontAwesomeIcon
           icon={faEnvelope}
           className="registerForm_Container_icon"
         />
-        <input className="registerForm_Container_input"
-          id="email"
+        <input
+          className="registerForm_Container_input"
           type="email"
           placeholder="Email"
           {...register("email", {
@@ -92,8 +93,8 @@ export default function RegisterForm() {
           icon={faLock}
           className="registerForm_Container_icon"
         />
-        <input className="registerForm_Container_input"
-          id="password"
+        <input
+          className="registerForm_Container_input"
           type="password"
           placeholder="Password"
           {...register("password", {
@@ -106,15 +107,16 @@ export default function RegisterForm() {
           <p>{errorMessage.required}</p>
         ) : null}
         {errors.password && errors.password.type === "minLength" ? (
-          <p>{errorMessage.passwordFieldLenght}</p>
+          <p>{errorMessage.minPassword}</p>
         ) : null}
         {errors.password && errors.password.type === "maxLength" ? (
-          <p>{errorMessage.passwordFieldLenght}</p>
+          <p>{errorMessage.maxPassword}</p>
         ) : null}
 
         <button className="registerForm_Container_button" type="submit">
           Register
         </button>
+        {errorRegister && <h3 className="error"> {errorRegister} </h3>}
       </form>
     </div>
   );

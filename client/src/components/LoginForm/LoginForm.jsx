@@ -19,8 +19,8 @@ export default function LoginForm() {
   } = useForm();
   console.log(errors);
 
-  const handleFormLoginSumbit = (formValues) => {
-    const apiRes = postLogin(formValues);
+  const handleFormLoginSumbit = async (formValues) => {
+    const apiRes = await postLogin(formValues);
     console.log(apiRes);
   };
 

@@ -3,8 +3,10 @@ export const errorMessage = {
     emailPattern: 'please enter a valid email',
     integerPattern: 'please enter a valid number',
     nameFieldLenght: 'name must be at least 2 characters long',
-    surnameFieldLenght: 'name must be at least 2 characters long',
-    passwordFieldLenght: 'password must contain 4-30 characters',
+    minSurname: 'surname must be at least 2 characters long',
+    maxSurname: 'surnname must be longer than 100',
+    minPassword: 'password must contain 4-30 characters',
+    maxPassword: 'password must contain less than 30 characters',
     minAge:'you must be above 16 years to use this app',
     maxAge:'are you really 110 years?😳',
     minHeight:'we assume that your height is more than 50cm! 🤓 Please add it in cm?',
@@ -15,6 +17,4 @@ export const errorMessage = {
     maxElabTimePerDay:'Are you gonna spend more than 6 hours in the kitchen?',
     maxMealsPerDay:'you cant add more than 6 meals per day',
     minMealsPerDay:'at least you need two meals but its gonna be tough to find this meal plan'
-
-
   };

@@ -1,3 +1,4 @@
+import { UserContext, useUser } from './context/User';
 import { Route, Switch } from "react-router-dom";
 
 import SplashPage from "./pages/SplashPage"
@@ -8,7 +9,9 @@ import BiometricPage from "./pages/BiometricPage"
 import "./App.scss";
 
 function App() {
+  const userContextData = useUser();
   return (
+    <UserContext.Provider value={userContextData}>
     <div className="App">
       <div className="main">
         <Switch>
@@ -28,6 +31,7 @@ function App() {
         </Switch>
       </div>
     </div>
+        </UserContext.Provider>
   );
 }
 
