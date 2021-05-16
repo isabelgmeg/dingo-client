@@ -78,7 +78,7 @@ export default function BiometricForm() {
           </option>
         </select>
         {errors.gender && errors.gender.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="biometricForm_error">{errorMessage.required}</p>
         ) : null}
         <br></br>
         {/* AGE */}
@@ -93,13 +93,13 @@ export default function BiometricForm() {
           {...register("age", { required: true, max: 110, min: 16 })}
         />
         {errors.age && errors.age.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="biometricForm_error">{errorMessage.required}</p>
         ) : null}
         {errors.age && errors.age.type === "min" ? (
-          <p>{errorMessage.minAge}</p>
+          <p className="biometricForm_error">{errorMessage.minAge}</p>
         ) : null}
         {errors.age && errors.age.type === "max" ? (
-          <p>{errorMessage.maxAge}</p>
+          <p className="biometricForm_error">{errorMessage.maxAge}</p>
         ) : null}
         <br></br>
         {/* HEIGHT */}
@@ -115,13 +115,13 @@ export default function BiometricForm() {
           {...register("height", { required: true, max: 250, min: 50 })}
         />
         {errors.height && errors.height.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="biometricForm_error">{errorMessage.required}</p>
         ) : null}
         {errors.height && errors.height.type === "min" ? (
-          <p>{errorMessage.minAge}</p>
+          <p className="biometricForm_error">{errorMessage.minAge}</p>
         ) : null}
         {errors.height && errors.height.type === "max" ? (
-          <p>{errorMessage.maxHeight}</p>
+          <p className="biometricForm_error">{errorMessage.maxHeight}</p>
         ) : null}
         <br></br>
         {/* WEIGHT */}
@@ -137,13 +137,13 @@ export default function BiometricForm() {
           {...register("weight", { required: true, max: 300, min: 20 })}
         />
         {errors.weight && errors.weight.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="biometricForm_error">{errorMessage.required}</p>
         ) : null}
         {errors.weight && errors.weight.type === "min" ? (
-          <p>{errorMessage.minWeight}</p>
+          <p className="biometricForm_error">{errorMessage.minWeight}</p>
         ) : null}
         {errors.weight && errors.weight.type === "max" ? (
-          <p>{errorMessage.maxWeight}</p>
+          <p className="biometricForm_error">{errorMessage.maxWeight}</p>
         ) : null}
         <br></br>
         {/* OBJECTIVES */}
@@ -171,7 +171,7 @@ export default function BiometricForm() {
           </option>
         </select>
         {errors.objectives && errors.objectives.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="biometricForm_error">{errorMessage.required}</p>
         ) : null}
         <br></br>
         {/* INTOLERANCES */}
@@ -247,13 +247,13 @@ export default function BiometricForm() {
           {...register("elabTimePerDay", { max: 400, min: 20 })}
         />
         {errors.elabTimePerDay && errors.elabTimePerDay.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="biometricForm_error">{errorMessage.required}</p>
         ) : null}
         {errors.elabTimePerDay && errors.elabTimePerDay.type === "max" ? (
-          <p>{errorMessage.maxElabTimePerDay}</p>
+          <p className="biometricForm_error">{errorMessage.maxElabTimePerDay}</p>
         ) : null}
         {errors.elabTimePerDay && errors.elabTimePerDay.type === "min" ? (
-          <p>{errorMessage.minElabTimePerDay}</p>
+          <p className="biometricForm_error">{errorMessage.minElabTimePerDay}</p>
         ) : null}
         <br></br>
         {/* MEALSPERDAY */}
@@ -269,13 +269,13 @@ export default function BiometricForm() {
           {...register("mealsPerDay", { required: true, max: 6, min: 2 })}
         />
         {errors.mealsPerDay && errors.mealsPerDay.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="biometricForm_error">{errorMessage.required}</p>
         ) : null}
         {errors.mealsPerDay && errors.mealsPerDay.type === "max" ? (
-          <p>{errorMessage.maxMealsPerDay}</p>
+          <p className="biometricForm_error">{errorMessage.maxMealsPerDay}</p>
         ) : null}
         {errors.mealsPerDay && errors.mealsPerDay.type === "min" ? (
-          <p>{errorMessage.minMealsPerDay}</p>
+          <p className="biometricForm_error">{errorMessage.minMealsPerDay}</p>
         ) : null}
         <br></br>
         <button className="biometricForm_Container_button" type="submit">

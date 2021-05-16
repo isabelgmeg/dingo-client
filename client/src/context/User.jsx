@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PostRegister, postLogin, getShortProfile } from '../services/auth';
+import { postRegister, postLogin, getShortProfile } from '../services/auth';
 
 export const UserContext = React.createContext(null);
 
@@ -29,16 +29,18 @@ export function useUser() {
 
 
   async function registerUser(body) {
-    PostRegister(body).then((user, error) => {
+    postRegister(body).then((user) => {
       if (user) {
         setUser({ user });
         //setError(null)
       }
-      if(error){
-        //setError({error})
-      }
     });
   }
+
+  // async function registerUser(body) {
+  //   const userData = await postRegister(body);
+  //   setUser(userData);
+  // }
 
   return { user, loading, loginUser, registerUser };
 }
