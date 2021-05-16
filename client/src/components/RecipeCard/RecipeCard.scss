@@ -1,0 +1,119 @@
+@import "../../styles/utilities.scss";
+
+body {
+  background-color: $turquoise;
+  display: flex;
+  align-items: center;
+}
+p {
+  margin: 0;
+}
+.recipeCard {
+  background-color: $off-white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  margin: 1rem;
+  &_info {
+    width: 90%;
+    display: block;
+    padding: 1rem;
+  }
+  &_name {
+    @include modern-display-tittle;
+    color: $dark-navy;
+    width: 50%;
+    display: inline-flex;
+    margin-top: -2rem;
+    margin-bottom: -2rem;
+  }
+  &_save {
+    display: inline-block;
+    width: 50%;
+    justify-content: flex-end;
+    text-align: right;
+    &_button {
+      color: $medium-gray;
+      background-color: $off-white;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+      font-size: 1rem;
+    }
+    &buttonSaved {
+      color: $turquoise;
+    }
+  }
+  &_details {
+    display: block;
+    &_calories {
+      width: 50%;
+      display: inline-flex;
+      @include recipe-text;
+    }
+    &_elabTime {
+      width: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-family: "Open Sans", sans-serif;
+      font-size: 12px;
+      color: $medium-gray;
+    }
+  }
+  &_carbsProteins {
+    @include recipe-text;
+    width: 90%;
+    display: inline-flex;
+    padding: 0.5rem;
+    justify-content: space-between;
+    &_carbs {
+      width: 50%;
+    }
+    &_proteins ~ {
+      width: 50%;
+    }
+  }
+  &_ingredients {
+    margin: 0.2rem;
+    padding-bottom: 0.3rem;
+    width: 80%;
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    &_list {
+      padding: 0rem;
+      list-style-type: none;
+      list-style-position: inside;
+    }
+    li {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      a {
+        text-decoration: none;
+        @include recipe-text;
+      }
+      p {
+        @include text-14-gray;
+      }
+    }
+  }
+  &_instructions {
+    margin-bottom: 1.5rem;
+    width: 90%;
+    &_title {
+      @include modern-display-tittle;
+    }
+    &_text {
+      @include text-14-gray-dark;
+    }
+  }
+  img {
+    width: 100%;
+    text-decoration: none;
+  }
+}

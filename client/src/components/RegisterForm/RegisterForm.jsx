@@ -12,7 +12,8 @@ import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function RegisterForm() {
-  const { registerUser, errorRegister } = useContext(UserContext);
+  const { registerUser } = useContext(UserContext);
+  const [errorMessageRegister, setErrorMessage] = useState("");
 
   const {
     handleSubmit,
@@ -22,15 +23,15 @@ export default function RegisterForm() {
 
   const HandleFormNewUserSubmit = (formValues, event) => {
     registerUser(formValues)
-      .then(() => {
-        event.target.reset();
-      })
-      .catch((err) => {
-        console.log(err);
-        console.log(errorRegister)
-      });
+    .then(() => {
+      event.target.reset();
+    })
+    .catch((err) => {
+      console.log(err);
+      setErrorMessage("hola")
+    });
   };
-
+  
   return (
     <div className="registerForm_Container">
       <form
@@ -116,7 +117,7 @@ export default function RegisterForm() {
         <button className="registerForm_Container_button" type="submit">
           Register
         </button>
-        {errorRegister && <h3 className="error"> {errorRegister} </h3>}
+      {errorMessageRegister && <p> {errorMessageRegister} </p>}
       </form>
     </div>
   );

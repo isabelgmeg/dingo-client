@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { UserContext } from "../context/User";
+
 import { Link } from "react-router-dom";
 
 import logo from "../assets/dingo_logo.png";
@@ -6,6 +9,8 @@ import RegisterForm from "../components/RegisterForm/RegisterForm";
 import "../styles/register.scss";
 
 export default function RegisterPage() {
+  // const { registerUser } = useContext(UserContext);
+
   return (
     <div className="register_container">
       <div className="register_content">

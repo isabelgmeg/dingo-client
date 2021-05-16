@@ -62,6 +62,24 @@ $medium-gray: #b2b7c6;
   text-decoration: none;
 }
 
+@mixin text-14-gray {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 14px;
+  }
+  color: $medium-gray;
+  text-decoration: none;
+}
+
+@mixin text-14-gray-dark {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 14px;
+  }
+  color: $dark-gray;
+  text-decoration: none;
+}
+
 @mixin text-18-white-buttons {
     font: {
       family: 'Open Sans', sans-serif;
@@ -94,6 +112,16 @@ $medium-gray: #b2b7c6;
   font: {
     family: 'Open Sans', sans-serif;
     size: 16px;
+  }
+  color: $orange;
+
+}
+
+@mixin recipe-text {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 0.8rem;
+    text-transform: uppercase;
   }
   color: $orange;
 

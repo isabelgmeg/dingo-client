@@ -1,7 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
 
-export async function PostRegister(data) {
+export async function postRegister(data) {
 
   try {
     const response = await axios.post(
@@ -11,7 +10,8 @@ export async function PostRegister(data) {
     );
     return response.data.data;
   } catch (error) {
-    return error;
+    console.log(error)
+    return null;
   }
 }
 
@@ -32,7 +32,7 @@ export async function postLogin(data) {
 export async function getShortProfile(data) {
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_API_URL}auth/short-profile`,
+      `${process.env.REACT_APP_API_URL}/auth/short-profile`,
       {
         data,
       },

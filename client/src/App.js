@@ -5,6 +5,7 @@ import SplashPage from "./pages/SplashPage"
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import BiometricPage from "./pages/BiometricPage"
+import MealPlanPage from "./pages/MealPlanPage"
 
 import "./App.scss";
 
@@ -27,7 +28,9 @@ function App() {
           <Route exact path="/biometric">
             <BiometricPage />
           </Route>
-
+          <Route exact path="/mealPlan">
+            <MealPlanPage />
+          </Route>
         </Switch>
       </div>
     </div>

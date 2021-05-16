@@ -61,6 +61,6 @@ input::placeholder {
 label.biometricForm_Container_input_checkbox{
     @include text-16-white;
 }
-p{
+.biometricForm_error{
   @include errorMessage
 }
