@@ -53,10 +53,10 @@ export default function RegisterForm() {
           })}
         />
         {errors.name && errors.name.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="registercForm_error" >{errorMessage.required}</p>
         ) : null}
         {errors.name && errors.name.type === "minLength" ? (
-          <p>{errorMessage.nameFieldLenght}</p>
+          <p className="registercForm_error" >{errorMessage.nameFieldLenght}</p>
         ) : null}
         <FontAwesomeIcon
           icon={faUser}
@@ -85,10 +85,10 @@ export default function RegisterForm() {
           })}
         />
         {errors.email && errors.email.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="registercForm_error" >{errorMessage.required}</p>
         ) : null}
         {errors.email && errors.email.type === "pattern" ? (
-          <p>{errorMessage.emailPattern}</p>
+          <p className="registercForm_error" >{errorMessage.emailPattern}</p>
         ) : null}
         <FontAwesomeIcon
           icon={faLock}
@@ -105,19 +105,19 @@ export default function RegisterForm() {
           })}
         />
         {errors.password && errors.password.type === "required" ? (
-          <p>{errorMessage.required}</p>
+          <p className="registercForm_error" >{errorMessage.required}</p>
         ) : null}
         {errors.password && errors.password.type === "minLength" ? (
-          <p>{errorMessage.minPassword}</p>
+          <p className="registercForm_error" >{errorMessage.minPassword}</p>
         ) : null}
         {errors.password && errors.password.type === "maxLength" ? (
-          <p>{errorMessage.maxPassword}</p>
+          <p className="registercForm_error" >{errorMessage.maxPassword}</p>
         ) : null}
 
         <button className="registerForm_Container_button" type="submit">
           Register
         </button>
-      {errorMessageRegister && <p> {errorMessageRegister} </p>}
+      {errorMessageRegister && <p className="registercForm_error" > {errorMessageRegister} </p>}
       </form>
     </div>
   );

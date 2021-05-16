@@ -26,12 +26,11 @@
     color: $white;
     margin-left: 10px;
     margin-right: 20px;
-  }p{
-    color: $orange;
-    background-color:#5656567e;
-    border-radius: 12px;
-    padding: 5px;
   }
+}
+
+.registercForm_error{
+  @include errorMessage
 }
 
 input::placeholder {
