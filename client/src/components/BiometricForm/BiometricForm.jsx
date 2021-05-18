@@ -34,7 +34,7 @@ export default function BiometricForm() {
     return intolerancesFromUser;
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, event) => {
      checkIntolerances(data);
     let userBiometrics = {
       gender: data.gender,
@@ -46,9 +46,17 @@ export default function BiometricForm() {
       elabTimePerDay: data.elabTimePerDay,
       mealsPerDay: data.mealsPerDay,
     };
-    postBiometrics(userBiometrics);
+    postBiometrics(userBiometrics)
+    .then(()=>{
+      event.target.reset();
+
+    })
+    .catch((err)=> {
+      console.log(err)
+    })
     console.log( "postBiometrics", postBiometrics(userBiometrics))
   };
+
 
   return (
     <div className="biometricForm_Container">

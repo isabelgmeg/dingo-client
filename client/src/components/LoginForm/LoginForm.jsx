@@ -1,7 +1,8 @@
-import React from "react";
+import { useContext, useState } from "react";
+import { Redirect } from "react-router-dom";
+import { UserContext } from "../../context/User";
 
 import { useForm } from "react-hook-form";
-import { postLogin } from "../../services/auth";
 import { errorMessage } from "../../constants/formErrors";
 
 import "./LoginForm.scss"
@@ -12,20 +13,29 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function LoginForm() {
+  const { loginUser } = useContext(UserContext);
+  const [ logedUser, setLogeduser ] = useState(null)
+
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
-  console.log(errors);
 
-  const handleFormLoginSumbit = async (formValues) => {
-    const apiRes = await postLogin(formValues);
-    console.log(apiRes);
+  const handleFormLoginSumbit = (formValues, event) => {
+    loginUser(formValues)
+    .then(() => {
+      setLogeduser(true)
+      event.target.reset();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   };
-
+  
   return (
     <div className="loginForm_Container">
+    { logedUser ? (<Redirect push to="/mealPlan"/>) : null }
       <form className="loginForm_form"
         onSubmit={handleSubmit(handleFormLoginSumbit)}>
         <FontAwesomeIcon

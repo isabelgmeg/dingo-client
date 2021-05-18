@@ -29,13 +29,10 @@ export async function postLogin(data) {
   }
 }
 
-export async function getShortProfile(data) {
+export async function getShortProfile() {
   try {
-    const response = await axios.post(
+    const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/auth/short-profile`,
-      {
-        data,
-      },
       { withCredentials: true }
     );
     return response.data.data;

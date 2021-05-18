@@ -6,3 +6,10 @@ export async function postBiometrics(body) {
     });
     return res.data.data;
   }
+
+  export async function getBiomtrics() {
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/biometrics/get`, {
+      withCredentials: true,
+    });
+    return res.data.data;
+  }

@@ -17,9 +17,9 @@ export default function LoginPage() {
         <div className="login_container_register">
         <span className="login_container_question">Dont have an account?</span>
       <Link to="/register">
-        <a className="login_container_link" href="/register">
+        <span className="login_container_link" href="/register">
           Register
-        </a>
+        </span>
       </Link>
       </div>
         </div>

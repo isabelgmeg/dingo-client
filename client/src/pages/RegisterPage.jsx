@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { UserContext } from "../context/User";
 
 import { Link } from "react-router-dom";
 
@@ -9,7 +7,6 @@ import RegisterForm from "../components/RegisterForm/RegisterForm";
 import "../styles/register.scss";
 
 export default function RegisterPage() {
-  // const { registerUser } = useContext(UserContext);
 
   return (
     <div className="register_container">
@@ -28,9 +25,9 @@ export default function RegisterPage() {
             Already registered?
           </span>
           <Link to="/login">
-            <a className="register_container_link" href="/login">
+            <span className="register_container_link" href="/login">
               Sign in
-            </a>
+            </span>
           </Link>
         </div>
       </div>
