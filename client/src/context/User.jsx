@@ -1,46 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { postRegister, postLogin, getShortProfile } from '../services/auth';
+import { getBiomtrics } from '../services/biometrics'
 
 export const UserContext = React.createContext(null);
 
 export function useUser() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [errorRegister, setError] = useState(null);
-
+  const [userBiometrics, setBiometrics] = useState(null);
 
   useEffect(() => {
     getShortProfile()
       .then((id) => {
-        setUser({ id });
+        if (id) {
+          setUser({ id });
+          biometricsUser()
+        }
       })
       .finally(() => {
         setLoading(false);
       });
   }, []);
 
+
   async function loginUser(email, password) {
     postLogin(email, password).then((user) => {
       if (user) {
-        setUser( user );
+        setUser({ user });
       }
     });
   }
-
 
   async function registerUser(body) {
     postRegister(body).then((user) => {
       if (user) {
         setUser({ user });
-        //setError(null)
       }
     });
   }
 
-  // async function registerUser(body) {
-  //   const userData = await postRegister(body);
-  //   setUser(userData);
-  // }
+  async function biometricsUser() {
+    getBiomtrics().then((userBiometrics) => {
+      if (userBiometrics) {
+        setBiometrics({ userBiometrics });
+      }
+    });
+  }
 
-  return { user, loading, loginUser, registerUser };
+  return { user, loading, loginUser, registerUser, userBiometrics };
 }

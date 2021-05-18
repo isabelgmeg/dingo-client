@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
+import { addRecipeToUser } from "../../services/users";
+
+
 import "./RecipeCard.scss";
 
 export default function RecipeCard({
@@ -15,8 +18,7 @@ export default function RecipeCard({
   proteins,
   calories,
   instructions,
-  picture,
-  addRecipeToUser,
+  picture
 }) {
   return (
     <div className="recipeCard" key={recipeId}>
@@ -28,7 +30,7 @@ export default function RecipeCard({
           <span className="recipeCard_save">
             <button
               className="recipeCard_save_button recipeCard_save_buttonSaved"
-              //onClick={addRecipeToUser(recipeId)}
+              onClick={addRecipeToUser(recipeId)}
             >
               <FontAwesomeIcon
                 icon={faHeart}

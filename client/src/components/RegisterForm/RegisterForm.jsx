@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Redirect } from "react-router-dom";
 import { UserContext } from "../../context/User";
 
 import { useForm } from "react-hook-form";
@@ -14,6 +15,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 export default function RegisterForm() {
   const { registerUser } = useContext(UserContext);
   const [errorMessageRegister, setErrorMessage] = useState("");
+  const [ logedUser, setLogeduser ] = useState(null)
 
   const {
     handleSubmit,
@@ -25,15 +27,19 @@ export default function RegisterForm() {
     registerUser(formValues)
     .then(() => {
       event.target.reset();
+      setLogeduser(true)
+
     })
     .catch((err) => {
       console.log(err);
       setErrorMessage("hola")
+      console.log(errorMessageRegister)
     });
   };
   
   return (
     <div className="registerForm_Container">
+          { logedUser ? (<Redirect push to="/biometric"/>) : null }
       <form
         className="registerForm_form"
         onSubmit={handleSubmit(HandleFormNewUserSubmit)}
@@ -117,7 +123,7 @@ export default function RegisterForm() {
         <button className="registerForm_Container_button" type="submit">
           Register
         </button>
-      {errorMessageRegister && <p className="registercForm_error" > {errorMessageRegister} </p>}
+      {errorMessageRegister && <h1 > {errorMessageRegister} </h1>}
       </form>
     </div>
   );
