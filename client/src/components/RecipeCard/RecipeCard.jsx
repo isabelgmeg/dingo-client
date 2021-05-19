@@ -30,7 +30,7 @@ export default function RecipeCard({
           <span className="recipeCard_save">
             <button
               className="recipeCard_save_button recipeCard_save_buttonSaved"
-              onClick={addRecipeToUser(recipeId)}
+              onClick={()=>addRecipeToUser(recipeId)}
             >
               <FontAwesomeIcon
                 icon={faHeart}
@@ -73,7 +73,7 @@ export default function RecipeCard({
               >
                 <Link
                   className="recipeCard_ingredients_list_ingredientInfo_link"
-                  to={`/ingredients/${ingredient.ingredientId.name}`}
+                  to={`/ingredients/${ingredient.ingredientId._id}`}
                 >
                   {ingredient.ingredientId.name}
                 </Link>
