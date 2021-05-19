@@ -127,6 +127,17 @@ $medium-gray: #b2b7c6;
 
 }
 
+@mixin recipe-text-title {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: 1rem;
+    text-transform: uppercase;
+    weight:bold;
+  }
+  color: $dark-gray;
+
+}
+
 @mixin call-action-button {
     width: 90%;
     height: 50px;

@@ -15,7 +15,6 @@ export default function MealPlanPage() {
     getRecipes()
       .then((res) => {
         setMealPlan(res);
-        console.log(res)
         console.log(userBiometrics)
 
       })
