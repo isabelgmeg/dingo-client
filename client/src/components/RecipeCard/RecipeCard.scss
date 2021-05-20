@@ -45,7 +45,7 @@
       width: 50%;
       display: inline-flex;
       @include recipe-text;
-      p{
+      p {
         margin: 0;
       }
     }
@@ -57,7 +57,7 @@
       font-family: "Open Sans", sans-serif;
       font-size: 12px;
       color: $medium-gray;
-      p{
+      p {
         margin: 0;
       }
     }
@@ -92,13 +92,17 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      p{
+      p {
         @include text-14-gray;
         margin: 0;
       }
       a {
         text-decoration: none;
-        @include recipe-text;
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 0.8rem;
+        color: $dark-gray;
+        font-weight: bold;
       }
     }
   }
