@@ -27,9 +27,9 @@ export default function IngredientCard({
       <div className="ingredientCard_info">
         <div className="ingredientCard_info_item">
           <p className="ingredientCard_info_item_title">Carbs:</p>
-          <p className="ingredientCard_info_item_data">{carbs} per 100grs</p>
+          <p className="ingredientCard_info_item_data">{carbs}per 100grs</p>
           <p className="ingredientCard_info_item_title">Proteins</p>
-        <p className="ingredientCard_info_item_data">{proteins} per 100grs</p>
+        <p className="ingredientCard_info_item_data">{proteins}per 100grs</p>
         </div>
       <div className="ingredientCard_info_item">
         <p className="ingredientCard_info_item_title">Fat</p>

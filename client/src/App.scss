@@ -1,4 +1,10 @@
+
+@import "./styles/utilities.scss";
+
 .App {
-    max-width: 426px;
+    max-width: 480px;
+    min-width: 320px;
     min-height: 926px;
+    align-items: center;
+    margin: auto;
 }

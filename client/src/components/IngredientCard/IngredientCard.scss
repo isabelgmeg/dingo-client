@@ -4,12 +4,13 @@ body {
   background-color: $turquoise;
 }
 .ingredientCard {
+  width: 100%;
   background-color: $off-white;
   display: flex;
   align-items: center;
   flex-direction: column;
   border-radius: 15px;
-  margin: 1rem;
+  margin-top: 30px;
   p{
     margin: 0;
     padding: 0;
@@ -35,7 +36,7 @@ body {
       align-items: center;
       flex-direction: column;
       display: flex;
-      width: 90%;
+      width: 95%;
       margin: 1rem;
     &_item {
         width: 100%;
@@ -48,6 +49,7 @@ body {
       }
       &_data{
           @include recipe-text;
+          font-size: 0.8rem;
       }
     }
   }
