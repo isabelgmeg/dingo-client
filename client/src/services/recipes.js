@@ -7,13 +7,17 @@ export async function getRecipes() {
     return res.data.data;
 }
 
-export async function getRecipeByIngredients(recipeId) {
-  const res = await axios.get(`${process.env.REACT_APP_API_URL}/recipes/getRecipeByIngredients/${recipeId}`, {
+export async function getRecipeByIngredients(ingredientId) {
+  const res = await axios.get(`${process.env.REACT_APP_API_URL}/recipes/getRecipeByIngredients/${ingredientId}`, {
     withCredentials: true,
   });
   return res.data.data;
 }
 
 
-
-
+export async function getRecipeById(recipeId) {
+  const res = await axios.get(`${process.env.REACT_APP_API_URL}/recipes/getRecipeById/${recipeId}`, {
+    withCredentials: true,
+  });
+  return res.data.data;
+}
