@@ -5,35 +5,38 @@ import { getRecipeByIngredients } from "../services/recipes";
 import { getIngredient } from "../services/ingredients";
 
 import IngredientCard from "../components/IngredientCard/IngredientCard";
+import MiniCard from "../components/MiniCard/MiniCard";
+
+import "../styles/ingredient.scss";
 
 export default function IngredientPage() {
   const [ingredient, setIngredient] = useState([]);
-  const [recipesByIngredient, setrecipesByIngredient] = useState({});
+  const [recipesByIngredient, setrecipesByIngredient] = useState(null);
 
   const { ingredientId } = useParams();
 
-  // getRecipeByIngredients(ingredientId)
-
   useEffect(() => {
     console.log("tosearch ", ingredientId);
-    getIngredient(ingredientId).then(
-      (res) => {
-        setIngredient(res).catch((err) => {
-          console.log(err);
-        });
-      },
-      [ingredientId]
-    );
+    getIngredient(ingredientId)
+      .then((res) => {
+        setIngredient(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
+  const getRecipes = () => {
     getRecipeByIngredients(ingredientId)
       .then((res) => {
         setrecipesByIngredient(res);
         console.log(recipesByIngredient);
+        console.log(recipesByIngredient[0].name);
       })
-      .cath((err) => {
+      .catch((err) => {
         console.log(err);
       });
-  });
+  };
 
   return (
     <div className="ingredientPage_container">
@@ -48,29 +51,29 @@ export default function IngredientPage() {
         picture={ingredient.picture}
       />
       <p className="ingredientPage_container_text">
-        Ready to generate a menu following your objectuves and intolerances?
+        Do you want to search for recipes with this ingredient?
       </p>
       <button
-        className="mealPlanPage_container_button"
+        className="ingredientPage_container_button"
         type="submit"
-        onClick={getRecipeByIngredients}
-      ></button>
-      {recipesByIngredient !== undefined &&
-        recipesByIngredient.map((recipe, _id) => (
-          <li key={recipe._id}>
-            <MiniCard
-              recipeId={recipe._id}
-              recipeName={recipe.name}
-              ingredientsInfo={recipe.ingredientsInfo}
-              elabTime={recipe.elabTime}
-              carbs={recipe.carbs}
-              proteins={recipe.proteins}
-              calories={recipe.calories}
-              instructions={recipe.instructions}
-              picture={recipe.picture}
-            />
-          </li>
-        ))}
+        onClick={getRecipes}
+      >Search 🚀</button>
+      <div className="ingredientPage_container_recipes">
+        <ul className="ingredientPage_container_recipes_item">
+          {recipesByIngredient !== null &&
+            recipesByIngredient.map((recipe, index) => (
+              <li key={index}>
+                <MiniCard
+                  recipeId={recipe._id}
+                  recipeName={recipe.name}
+                  elabTime={recipe.elabTime}
+                  calories={recipe.calories}
+                  picture={recipe.picture}
+                />
+              </li>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 }
