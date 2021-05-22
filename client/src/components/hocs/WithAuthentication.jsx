@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import Loader from 'react-loader-spinner';
 
 import { UserContext } from '../../context/User';
-import LoginForm from '../../pages/LoginPage';
+import LoginPage from '../../pages/LoginPage';
 
-function WithAuthentication({ children }) {
+export default function WithAuthentication({ children }) {
   const { user, loading } = useContext(UserContext);
 
   if (loading) {
@@ -19,7 +19,5 @@ function WithAuthentication({ children }) {
     );
   }
 
-  return <>{user ? <>{children}</> : <LoginForm />}</>;
+  return <>{user ? <>{children}</> : <LoginPage />}</>;
 }
-
-export default WithAuthentication;

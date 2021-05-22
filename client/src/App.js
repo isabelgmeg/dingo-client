@@ -10,20 +10,21 @@ import BiometricPage from "./pages/BiometricPage"
 import MealPlanPage from "./pages/MealPlanPage"
 import IngredientPage from "./pages/IngredientPage"
 import RecipePage from './pages/RecipePage'
+import NavBar from './components/NavBar/NavBar';
 
 import WithAuthentication from './components/hocs/WithAuthentication'
 
 import "./App.scss";
 
 function App() {
-  // const { logout } = useContext(UserContext);
-
-
   const userContextData = useUser();
   return (
     <UserContext.Provider value={userContextData}>
     <div className="App">
         <Switch>
+        <Route exact path="/navBar">
+            <NavBar />
+          </Route>
           <Route exact path="/">
             <SplashPage />
           </Route>
