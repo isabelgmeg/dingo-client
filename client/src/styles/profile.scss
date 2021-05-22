@@ -1,0 +1,29 @@
+.profilePage {
+  width: 100%;
+  align-items: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  &_container_recipes {
+      max-width: 300px;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    &_item {
+      width: 100%;
+      li {
+        display: flex;
+        width: min-content;
+        padding: 0.5rem;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -13,3 +13,10 @@ export async function postBiometrics(body) {
     });
     return res.data.data;
   }
+
+  export async function addNewWeight(weight) {
+    const res = await axios.put(`${process.env.REACT_APP_API_URL}/biometrics/modifyWeight`, weight, {
+      withCredentials: true,
+    });
+    return res.data.data;
+  }

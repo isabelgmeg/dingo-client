@@ -35,7 +35,7 @@ export default function NavBar() {
           />
         </Link>
 
-        <Link className="navBar_container_list_link" to="/recipes">
+        <Link className="navBar_container_list_link" to="/profile">
           <FontAwesomeIcon
             icon={faIdCard}
             className="navBar_container_list_icon"
