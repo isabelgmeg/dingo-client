@@ -13,6 +13,7 @@ export default function BiometricPage() {
 
   return (
     <div className="biometricPage_container">
+      <NavBar />
       {userBiometrics !== null ? (
         <div className="biometricPage_container_data">
           <BiometricData
