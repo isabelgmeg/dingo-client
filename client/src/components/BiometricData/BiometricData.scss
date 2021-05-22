@@ -1,0 +1,36 @@
+@import '../../styles/utilities.scss';
+
+.biometricData {
+    margin-top: 1rem;
+    width: 60%;
+    height: auto;
+    padding: 5px;
+    background-color: #f7f8fccc;
+    border-radius: 15px;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    &_text{
+        margin-bottom: 1rem;
+        @include modern-display-tittle;
+        color: $dark-navy;
+        margin: 0;
+        font-size: 1rem;
+    }
+    &_data{
+        @include modern-display-tittle;
+        color: $orange;
+        margin: 0;
+        width: 100%;
+        flex-wrap: wrap;
+        font-size: 1rem;
+
+    }
+    &_brm{
+        @include modern-display-tittle;
+        color: $turquoise;
+        margin: 0.5rem;
+        margin-bottom: 1rem;
+    }
+}

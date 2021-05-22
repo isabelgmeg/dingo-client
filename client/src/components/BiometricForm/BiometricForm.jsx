@@ -8,6 +8,8 @@ import { postBiometrics } from "../../services/biometrics";
 import "./BiometricForm.scss";
 
 export default function BiometricForm() {
+
+  
   const {
     handleSubmit,
     register,

@@ -27,3 +27,11 @@ export async function getShortProfile() {
     );
     return response.data.data;
 }
+
+export async function getLogout() {
+  const response = await axios.get(
+    `${process.env.REACT_APP_API_URL}/auth/logout`,
+    { withCredentials: true }
+  );
+  return response.data.data;
+}
