@@ -49,6 +49,7 @@ export function useUser() {
 
   async function logout() {
     getLogout().then(() => setUser(null));
+    console.log("bye")
   }
 
   return { user, loading, loginUser, registerUser, userBiometrics, logout };

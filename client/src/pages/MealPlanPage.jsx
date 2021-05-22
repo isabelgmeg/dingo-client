@@ -3,6 +3,7 @@ import { UserContext } from "../context/User";
 import { getRecipes } from "../services/recipes";
 import { getTotalCalories, getTotalElabTime } from "../services/utils";
 
+import NavBar from '../components/NavBar/NavBar'
 import RecipeCard from "../components/RecipeCard/RecipeCard";
 import "../styles/mealPlan.scss";
 
@@ -27,6 +28,7 @@ export default function MealPlanPage() {
 
   return (
     <div className="mealPlanPage_container">
+      <NavBar />
       <p className="mealPlanPage_container_text">
         Ready to generate a menu following your objectuves and intolerances?
       </p>

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import NavBar from "../components/NavBar/NavBar"
 import BimetricForm from "../components/BiometricForm/BiometricForm";
 import BiometricData from "../components/BiometricData/BiometricData";
 import { UserContext } from "../context/User";
@@ -12,6 +13,7 @@ export default function BiometricPage() {
 
   return (
     <div className="biometricPage_container">
+      <NavBar />
       {userBiometrics !== null ? (
         <div className="biometricPage_container_data">
           <BiometricData
