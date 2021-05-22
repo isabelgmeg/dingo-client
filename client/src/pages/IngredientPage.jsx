@@ -16,7 +16,6 @@ export default function IngredientPage() {
   const { ingredientId } = useParams();
 
   useEffect(() => {
-    console.log("tosearch ", ingredientId);
     getIngredient(ingredientId)
       .then((res) => {
         setIngredient(res);
@@ -24,14 +23,12 @@ export default function IngredientPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  },[]);
 
   const getRecipes = () => {
     getRecipeByIngredients(ingredientId)
       .then((res) => {
         setrecipesByIngredient(res);
-        console.log(recipesByIngredient);
-        console.log(recipesByIngredient[0].name);
       })
       .catch((err) => {
         console.log(err);

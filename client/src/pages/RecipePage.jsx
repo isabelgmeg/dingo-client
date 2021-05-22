@@ -5,6 +5,8 @@ import { getRecipeById } from "../services/recipes";
 
 import RecipeCard from "../components/RecipeCard/RecipeCard";
 
+import '../styles/recipe.scss'
+
 export default function RecipePage() {
   const [recipe, setRecipe] = useState([]);
 
@@ -13,7 +15,6 @@ export default function RecipePage() {
   useEffect(() => {
     getRecipeById(recipeId)
       .then((res) => {
-          console.log(res)
         setRecipe(res);
       })
       .catch((err) => {
@@ -26,7 +27,7 @@ export default function RecipePage() {
     <div className="recipePage_container">
       <RecipeCard
           recipeId={recipe.recipeId}
-          recipeName={recipe.recipeName}
+          recipeName={recipe.name}
           ingredientsInfo={recipe.ingredientsInfo}
           elabTime={recipe.elabTime}
           carbs={recipe.carbs}

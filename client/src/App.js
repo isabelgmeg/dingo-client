@@ -1,3 +1,5 @@
+// import { useContext } from 'react';
+
 import { UserContext, useUser } from './context/User';
 import { Route, Switch } from "react-router-dom";
 
@@ -12,11 +14,14 @@ import RecipePage from './pages/RecipePage'
 import "./App.scss";
 
 function App() {
+  // const { logout } = useContext(UserContext);
+
+
   const userContextData = useUser();
   return (
     <UserContext.Provider value={userContextData}>
     <div className="App">
-      <div className="main">
+        {/* <button onClick={()=>logout()}>logout</button> */}
         <Switch>
           <Route exact path="/">
             <SplashPage />
@@ -40,7 +45,6 @@ function App() {
             <RecipePage />
           </Route>
         </Switch>
-      </div>
     </div>
         </UserContext.Provider>
   );

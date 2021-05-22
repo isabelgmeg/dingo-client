@@ -137,13 +137,18 @@ $medium-gray: #b2b7c6;
   color: $dark-gray;
 
 }
-
 @mixin call-action-button {
-    width: 90%;
+  margin: auto;
+  align-content: center;
+  text-align: center;
+    width: 70%;
     height: 50px;
     border-radius: 15px;
     background-color: $orange;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include text-18-white-buttons();
 }
 @mixin errorMessage {

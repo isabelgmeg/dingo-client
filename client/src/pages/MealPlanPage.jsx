@@ -1,28 +1,29 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../context/User";
 import { getRecipes } from "../services/recipes";
+import { getTotalCalories, getTotalElabTime } from "../services/utils";
 
 import RecipeCard from "../components/RecipeCard/RecipeCard";
-
 import "../styles/mealPlan.scss";
 
 export default function MealPlanPage() {
   const { userBiometrics } = useContext(UserContext);
 
-  const [mealPlan, setMealPlan] = useState([]);
+  const [mealPlan, setMealPlan] = useState(null);
+  const [timeAffinity, setTimeAffinity] = useState(null);
+  const [calsAffinity, setCalsAffinity] = useState(null);
 
   const getMealPlan = () => {
     getRecipes()
       .then((res) => {
         setMealPlan(res);
-        console.log(userBiometrics)
-
+        setTimeAffinity(getTotalElabTime(res));
+        setCalsAffinity(getTotalCalories(res));
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
 
   return (
     <div className="mealPlanPage_container">
@@ -36,9 +37,19 @@ export default function MealPlanPage() {
       >
         Generate Menu!🥕
       </button>
+      <div className="mealPlanPage_container_affinity">
+        {mealPlan !== undefined && userBiometrics !== null && timeAffinity !== null && calsAffinity !==null ? (
+          <p>
+            We have found a meal plan for you, which has {calsAffinity}cals for your
+            objective of {userBiometrics.basalMetabolicRate}cals per day and
+            takes {timeAffinity} minutes to cook following your 
+            {userBiometrics.elabTimePerDay} minutes that you wanted ✌️🔥
+          </p>
+        ) : null}
+      </div>
       <div className="mealPlanPage_container_cardsContainer">
         <ul className="recipeCard_ingredients_list">
-          {mealPlan !== undefined &&
+          {mealPlan !== null &&
             mealPlan.map((recipe, _id) => (
               <li key={recipe._id}>
                 <RecipeCard

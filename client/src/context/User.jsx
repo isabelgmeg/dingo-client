@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { postRegister, postLogin, getShortProfile } from '../services/auth';
+import { postRegister, postLogin, getShortProfile, getLogout } from '../services/auth';
 import { getBiomtrics } from '../services/biometrics'
 
 export const UserContext = React.createContext(null);
@@ -26,7 +26,7 @@ export function useUser() {
   async function loginUser(email, password) {
     postLogin(email, password).then((user) => {
       if (user) {
-        setUser({ user });
+        setUser( user );
       }
     });
   }
@@ -34,7 +34,7 @@ export function useUser() {
   async function registerUser(body) {
     postRegister(body).then((user) => {
       if (user) {
-        setUser({ user });
+        setUser( user );
       }
     });
   }
@@ -42,10 +42,14 @@ export function useUser() {
   async function biometricsUser() {
     getBiomtrics().then((userBiometrics) => {
       if (userBiometrics) {
-        setBiometrics({ userBiometrics });
+        setBiometrics( userBiometrics );
       }
     });
   }
 
-  return { user, loading, loginUser, registerUser, userBiometrics };
+  async function logout() {
+    getLogout().then(() => setUser(null));
+  }
+
+  return { user, loading, loginUser, registerUser, userBiometrics, logout };
 }
