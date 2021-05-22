@@ -11,6 +11,8 @@ import MealPlanPage from "./pages/MealPlanPage"
 import IngredientPage from "./pages/IngredientPage"
 import RecipePage from './pages/RecipePage'
 
+import WithAuthentication from './components/hocs/WithAuthentication'
+
 import "./App.scss";
 
 function App() {
@@ -21,7 +23,6 @@ function App() {
   return (
     <UserContext.Provider value={userContextData}>
     <div className="App">
-        {/* <button onClick={()=>logout()}>logout</button> */}
         <Switch>
           <Route exact path="/">
             <SplashPage />
@@ -32,11 +33,15 @@ function App() {
           <Route exact path="/login">
             <LoginPage />
           </Route>
+          <WithAuthentication>
           <Route exact path="/biometric">
             <BiometricPage />
           </Route>
+            </WithAuthentication>
           <Route exact path="/mealPlan">
+          <WithAuthentication>
             <MealPlanPage />
+            </WithAuthentication>
           </Route>
           <Route exact path="/ingredients/:ingredientId">
             <IngredientPage />
