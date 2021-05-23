@@ -23,7 +23,7 @@ export default function ProfilePage() {
   } = useForm();
 
   const onSubmit = (weight, event) => {
-    console.log(weight)
+    console.log(userBiometrics)
     newWeightUser(weight)
     .then((res)=>{
         event.target.reset()
@@ -35,7 +35,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     getFavsUser();
-  }, []);
+  }, [userBiometrics]);
 
   return (
     <div className="profilePage">
@@ -53,10 +53,11 @@ export default function ProfilePage() {
         Add your current weight and see your progress!
       </p>
       <div className="profilePage_modifyWeight">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="profilePage_modifyWeight_form"
+        onSubmit={handleSubmit(onSubmit)}>
           <label 
           className="profilePage_modifyWeight_label"
-          htmlFor="weight">Weight:</label>
+      htmlFor="weight">{""}</label>
           <input
             className="profilePage_modifyWeight_input"
             id="weight"
@@ -73,7 +74,7 @@ export default function ProfilePage() {
           <button
             className="profilePage_modifyWeight_button"
             type="submit"
-          ></button>
+          >Submit</button>
         </form>
       </div>
       {userBiometrics !== null ? (
