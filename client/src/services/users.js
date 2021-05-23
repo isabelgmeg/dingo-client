@@ -6,3 +6,10 @@ export async function addRecipeToUser(recipeId) {
     });
     return res.data.data;
 }
+
+export async function getUserFavs() {
+  const res = await axios.get(`${process.env.REACT_APP_API_URL}/users/savedRecipes`, {
+    withCredentials: true,
+  });
+  return res.data.data;
+}

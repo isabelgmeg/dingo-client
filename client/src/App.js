@@ -1,18 +1,19 @@
 // import { useContext } from 'react';
 
-import { UserContext, useUser } from './context/User';
+import { UserContext, useUser } from "./context/User";
 import { Route, Switch } from "react-router-dom";
 
-import SplashPage from "./pages/SplashPage"
+import SplashPage from "./pages/SplashPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
-import BiometricPage from "./pages/BiometricPage"
-import MealPlanPage from "./pages/MealPlanPage"
-import IngredientPage from "./pages/IngredientPage"
-import RecipePage from './pages/RecipePage'
-import NavBar from './components/NavBar/NavBar';
+import BiometricPage from "./pages/BiometricPage";
+import MealPlanPage from "./pages/MealPlanPage";
+import IngredientPage from "./pages/IngredientPage";
+import RecipePage from "./pages/RecipePage";
+import NavBar from "./components/NavBar/NavBar";
+import ProfilePage from "./pages/ProfilePage";
 
-import WithAuthentication from './components/hocs/WithAuthentication'
+import WithAuthentication from "./components/hocs/WithAuthentication";
 
 import "./App.scss";
 
@@ -20,9 +21,9 @@ function App() {
   const userContextData = useUser();
   return (
     <UserContext.Provider value={userContextData}>
-    <div className="App">
+      <div className="App">
         <Switch>
-        <Route exact path="/navBar">
+          <Route exact path="/navBar">
             <NavBar />
           </Route>
           <Route exact path="/">
@@ -34,16 +35,21 @@ function App() {
           <Route exact path="/login">
             <LoginPage />
           </Route>
-          <WithAuthentication>
           <Route exact path="/biometric">
-            <BiometricPage />
-          </Route>
+            <WithAuthentication>
+              <BiometricPage />
             </WithAuthentication>
-          <Route exact path="/mealPlan">
+          </Route>
+          <Route exact path="/profile">
           <WithAuthentication>
-            <MealPlanPage />
-            </WithAuthentication>
+            <ProfilePage />
+          </WithAuthentication>
           </Route>
+            <Route exact path="/mealPlan">
+          <WithAuthentication>
+              <MealPlanPage />
+          </WithAuthentication>
+            </Route>
           <Route exact path="/ingredients/:ingredientId">
             <IngredientPage />
           </Route>
@@ -51,8 +57,8 @@ function App() {
             <RecipePage />
           </Route>
         </Switch>
-    </div>
-        </UserContext.Provider>
+      </div>
+    </UserContext.Provider>
   );
 }
 

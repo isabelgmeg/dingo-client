@@ -6,7 +6,6 @@ import LoginPage from '../../pages/LoginPage';
 
 export default function WithAuthentication({ children }) {
   const { user, loading } = useContext(UserContext);
-
   if (loading) {
     return (
       <Loader

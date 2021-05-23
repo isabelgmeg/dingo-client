@@ -147,7 +147,7 @@ $medium-gray: #b2b7c6;
     display: flex;
     justify-content: center;
     align-items: center;
-    @include text-18-white-buttons();
+    @include text-18-white-buttons;
 }
 @mixin errorMessage {
     color: #bdbdbdc2;

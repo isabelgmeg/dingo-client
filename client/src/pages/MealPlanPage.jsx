@@ -27,8 +27,9 @@ export default function MealPlanPage() {
   };
 
   return (
-    <div className="mealPlanPage_container">
+    <div className="mealPlanPage">
       <NavBar />
+    <div className="mealPlanPage_container">
       <p className="mealPlanPage_container_text">
         Ready to generate a menu following your objectuves and intolerances?
       </p>
@@ -69,6 +70,7 @@ export default function MealPlanPage() {
             ))}
         </ul>
       </div>
+    </div>
     </div>
   );
 }

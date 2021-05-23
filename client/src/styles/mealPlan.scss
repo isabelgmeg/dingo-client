@@ -1,7 +1,9 @@
 @import "../styles/utilities";
 
 
-.mealPlanPage_container{
+.mealPlanPage{
+
+&_container{
     background-color: #128fae;
     flex-direction: column;
     text-align: center;
@@ -11,6 +13,7 @@
     max-width: 300px;
     align-items: center;
     margin: auto;
+    margin-bottom: 1rem;
     &_button{
         @include call-action-button
     }
@@ -23,4 +26,4 @@
         font-weight: bold;
         color: $off-white;
     }
-}
+}}

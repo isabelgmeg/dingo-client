@@ -1,0 +1,77 @@
+@import './utilities.scss';
+
+.profilePage {
+  width: 100%;
+  align-items: center;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  &_weightText{
+    @include text-16-white;
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+  }
+  &_modifyWeight{
+    form{
+      display: flex;
+    }
+    display: inline-flex;
+    &_input{
+      @include text-14-white;
+      width:200px;
+      outline: none;
+      border: 0;
+      cursor: pointer;
+      background: transparent;
+      border-bottom: 1px solid $orange;
+      padding-bottom: 5px;
+      display: inline;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-decoration: solid;
+    }
+    &_button{
+      width: 60px;
+      font-size: 0.8rem;
+      color: $white;
+      border-radius: 15px;
+      height: 20px;
+      text-decoration: none;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;  margin: auto;
+      align-content: center;
+      text-align: center;
+        border-radius: 15px;
+        background-color: $orange;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+  &_container_recipes {
+      max-width: 300px;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    &_item {
+      width: 100%;
+      li {
+        display: flex;
+        width: min-content;
+        padding: 0.5rem;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
