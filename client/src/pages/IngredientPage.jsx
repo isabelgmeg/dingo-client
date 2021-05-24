@@ -6,6 +6,7 @@ import { getIngredient } from "../services/ingredients";
 
 import IngredientCard from "../components/IngredientCard/IngredientCard";
 import MiniCard from "../components/MiniCard/MiniCard";
+import NavBar from "../components/NavBar/NavBar"
 
 import "../styles/ingredient.scss";
 
@@ -36,6 +37,8 @@ export default function IngredientPage() {
   };
 
   return (
+    <div className="ingredientPage" >
+            <NavBar />
     <div className="ingredientPage_container">
       <IngredientCard
         ingredientName={ingredient.name}
@@ -71,6 +74,7 @@ export default function IngredientPage() {
             ))}
         </ul>
       </div>
+    </div>
     </div>
   );
 }

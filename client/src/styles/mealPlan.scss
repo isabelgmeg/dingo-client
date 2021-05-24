@@ -4,7 +4,6 @@
 .mealPlanPage{
 
 &_container{
-    background-color: #128fae;
     flex-direction: column;
     text-align: center;
     min-height: 926px;
@@ -13,7 +12,9 @@
     max-width: 300px;
     align-items: center;
     margin: auto;
-    margin-bottom: 1rem;
+    &_cardsContainer{
+        padding-bottom: 1rem;
+    }
     &_button{
         @include call-action-button
     }

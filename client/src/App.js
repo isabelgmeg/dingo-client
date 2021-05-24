@@ -12,6 +12,7 @@ import IngredientPage from "./pages/IngredientPage";
 import RecipePage from "./pages/RecipePage";
 import NavBar from "./components/NavBar/NavBar";
 import ProfilePage from "./pages/ProfilePage";
+import RecipeHomePage from './pages/RecipeHomePage';
 
 import WithAuthentication from "./components/hocs/WithAuthentication";
 
@@ -52,6 +53,9 @@ function App() {
             </Route>
           <Route exact path="/ingredients/:ingredientId">
             <IngredientPage />
+          </Route>
+          <Route exact path="/recipes">
+            <RecipeHomePage />
           </Route>
           <Route exact path="/recipe/:recipeId">
             <RecipePage />

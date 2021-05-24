@@ -2,4 +2,9 @@
 
 .recipePage_container{
     width: 90%;
+    max-width: 300px;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
