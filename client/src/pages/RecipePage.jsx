@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { getRecipeById } from "../services/recipes";
 
 import RecipeCard from "../components/RecipeCard/RecipeCard";
+import NavBar from "../components/NavBar/NavBar"
 
 import '../styles/recipe.scss'
 
@@ -24,6 +25,8 @@ export default function RecipePage() {
 
 
   return (
+    <div className="recipePage">
+      <NavBar/>
     <div className="recipePage_container">
       <RecipeCard
           recipeId={recipe.recipeId}
@@ -36,6 +39,7 @@ export default function RecipePage() {
           instructions={recipe.instructions}
           picture={recipe.picture}
       />
+    </div>
     </div>
   );
 }

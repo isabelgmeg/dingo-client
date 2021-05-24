@@ -21,3 +21,11 @@ export async function getRecipeById(recipeId) {
   });
   return res.data.data;
 }
+
+export async function getRecipeIdByName(recipeName) {
+  const res = await axios.get(`${process.env.REACT_APP_API_URL}/recipes/get/${recipeName}`, {
+    withCredentials: true,
+  });
+  return res.data.data;
+}
+
