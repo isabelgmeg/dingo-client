@@ -18,5 +18,14 @@ export const getTotalCalories = (array) =>
     return prev + cur.elabTime;
   }, 0);
 
-
+  export const check = (id, array) => {
+    if(array.length !==0 && array.includes(id)){
+      console.log('includes')
+      return "recipeCard_save_button"
+    }else{
+      console.log('not includes')
+  
+      return "recipeCard_save_buttonSaved"
+    }
+  }
 

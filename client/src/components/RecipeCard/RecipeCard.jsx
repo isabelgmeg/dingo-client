@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
+import { useState } from 'react'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 import { addRecipeToUser } from "../../services/users";
-
 
 import "./RecipeCard.scss";
 
@@ -18,8 +18,10 @@ export default function RecipeCard({
   proteins,
   calories,
   instructions,
-  picture
+  picture,
+  saved
 }) {
+
   return (
     <div className="recipeCard" key={recipeId}>
       <div className="recipeCard_info">
@@ -29,12 +31,12 @@ export default function RecipeCard({
           </span>
           <span className="recipeCard_save">
             <button
-              className="recipeCard_save_button recipeCard_save_buttonSaved"
-              onClick={()=>addRecipeToUser(recipeId)}
+              className={saved}
+              onClick={() => addRecipeToUser(recipeId)}
             >
               <FontAwesomeIcon
                 icon={faHeart}
-                className="recipeCard_save_button recipeCard_save_buttonSaved"
+                className={saved}
               />
             </button>
           </span>
@@ -83,7 +85,7 @@ export default function RecipeCard({
         </ul>
       </div>
       <div className="recipeCard_instructions">
-      <p className="recipeCard_instructions_title">Instructions</p>
+        <p className="recipeCard_instructions_title">Instructions</p>
         <p className="recipeCard_instructions_text">{instructions}</p>
       </div>
     </div>
