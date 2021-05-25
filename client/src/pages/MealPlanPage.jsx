@@ -32,8 +32,6 @@ export default function MealPlanPage() {
     getFavsUser()
     if(userFavs !=null && userFavs.length !==0  ){
       const favsArray= userFavs.map((recipe) => recipe._id);
-      console.log(favsArray)
-
       setSaved(favsArray)
     }
   },[])
