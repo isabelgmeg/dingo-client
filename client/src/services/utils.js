@@ -9,11 +9,4 @@ export const getTotalCalories = (array) =>
     return prev + cur.elabTime;
   }, 0);
 
-  export const check = (id, array) => {
-    if(array.length !==0 && array.includes(id)){
-      return "recipeCard_save_button"
-    }else{
-      return "recipeCard_save_buttonSaved"
-    }
-  }
 

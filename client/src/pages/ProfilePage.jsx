@@ -1,8 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/User";
 import { useForm } from "react-hook-form";
 import { errorMessage } from "../constants/formErrors";
-
 
 import MiniCard from "../components/MiniCard/MiniCard";
 import NavBar from "../components/NavBar/NavBar";
@@ -12,9 +11,13 @@ import BiometricData from "../components/BiometricData/BiometricData";
 import "../styles/profile.scss";
 
 export default function ProfilePage() {
-  const { userFavs, getFavsUser, userBiometrics, newWeightUser } = useContext(
-    UserContext
-  );
+  const {
+    userBiometrics,
+    newWeightUser,
+    userFavs,
+    biometricsUser,
+  } = useContext(UserContext);
+  const [newWeight, setNewWeight] = useState(null);
 
   const {
     handleSubmit,
@@ -23,19 +26,28 @@ export default function ProfilePage() {
   } = useForm();
 
   const onSubmit = (weight, event) => {
-    console.log(userBiometrics)
+    console.log(userBiometrics);
     newWeightUser(weight)
-    .then((res)=>{
-        event.target.reset()
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((res) => {
+        event.target.reset();
+        setNewWeight(weight)
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
-    getFavsUser();
-  }, [userBiometrics]);
+    biometricsUser()
+      .then((res) => {
+        console.log("update bio", res);
+        console.log("userBiometrics=>", userBiometrics);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [newWeight]);
 
   return (
     <div className="profilePage">
@@ -53,11 +65,13 @@ export default function ProfilePage() {
         Add your current weight and see your progress!
       </p>
       <div className="profilePage_modifyWeight">
-        <form className="profilePage_modifyWeight_form"
-        onSubmit={handleSubmit(onSubmit)}>
-          <label 
-          className="profilePage_modifyWeight_label"
-      htmlFor="weight">{""}</label>
+        <form
+          className="profilePage_modifyWeight_form"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <label className="profilePage_modifyWeight_label" htmlFor="weight">
+            {""}
+          </label>
           <input
             className="profilePage_modifyWeight_input"
             id="weight"
@@ -71,10 +85,9 @@ export default function ProfilePage() {
           {errors.weight && errors.weight.type === "max" ? (
             <p className="biometricForm_error">{errorMessage.maxWeight}</p>
           ) : null}
-          <button
-            className="profilePage_modifyWeight_button"
-            type="submit"
-          >Submit</button>
+          <button className="profilePage_modifyWeight_button" type="submit">
+            Submit
+          </button>
         </form>
       </div>
       {userBiometrics !== null ? (
@@ -82,7 +95,7 @@ export default function ProfilePage() {
       ) : null}
       <div className="profilePage_container_recipes">
         <ul className="profilePage_container_recipes_item">
-          {userFavs !== null &&
+          {userFavs &&
             userFavs.map((recipe, index) => (
               <li key={index}>
                 <MiniCard
