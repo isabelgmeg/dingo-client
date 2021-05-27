@@ -8,7 +8,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import NavBar from "../components/NavBar/NavBar";
 
-import "../styles/recipeHomePage.scss";
+import "../styles/recipe.scss";
 
 export default function RecipeHomePage() {
   const history = useHistory();
@@ -46,7 +46,7 @@ export default function RecipeHomePage() {
         ></input>
         <FontAwesomeIcon
           icon={faSearch}
-          className="recipeHome_searchbox_icon"
+          className="recipeHome_searchbox_input_icon--hover"
           onClick={handleClick}
         />
       </div>

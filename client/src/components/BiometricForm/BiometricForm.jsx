@@ -4,13 +4,10 @@ import { useForm } from "react-hook-form";
 
 import { errorMessage } from "../../constants/formErrors";
 import { postBiometrics } from "../../services/biometrics";
-import { useHistory } from "react-router-dom";
 
 import "./BiometricForm.scss";
 
 export default function BiometricForm() {
-
-  const history = useHistory();
 
   
   const {
@@ -54,7 +51,7 @@ export default function BiometricForm() {
     postBiometrics(userBiometrics)
     .then(()=>{
       event.target.reset();
-      history.push(`/mealPlan`);
+
     })
     .catch((err)=> {
       console.log(err)
@@ -64,7 +61,6 @@ export default function BiometricForm() {
 
 
   return (
-
     <div className="biometricForm_Container">
       <form className="biometricForm_form" onSubmit={handleSubmit(onSubmit)}>
         {/* GENDER */}
