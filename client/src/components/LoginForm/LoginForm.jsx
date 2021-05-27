@@ -15,8 +15,6 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'
 export default function LoginForm() {
   const { loginUser, userBiometrics } = useContext(UserContext);
   const [ logedUser, setLogeduser ] = useState(null)
-  const [ error, setError ] = useState(null)
-
 
   const {
     handleSubmit,
