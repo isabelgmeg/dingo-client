@@ -10,7 +10,6 @@ import '../styles/biometric.scss'
 
 export default function BiometricPage() {
   const { userBiometrics } = useContext(UserContext);
-  console.log(userBiometrics)
 
   return (
     <div className="biometricPage_container">

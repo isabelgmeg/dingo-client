@@ -31,9 +31,6 @@ export function useUser() {
       if (user) {
         setUser( user );
         getFavsUser()
-        biometricsUser()
-      }else{
-        console.log(user)
       }
     });
   }
@@ -73,5 +70,5 @@ export function useUser() {
     console.log("bye")
   }
 
-  return { user, loading, loginUser, registerUser, userBiometrics, logout, userFavs, getFavsUser, newWeightUser, biometricsUser };
+  return { user, loading, loginUser, registerUser, userBiometrics, logout, userFavs, getFavsUser, newWeightUser };
 }
