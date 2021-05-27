@@ -7,4 +7,9 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    &_searchbox{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 }

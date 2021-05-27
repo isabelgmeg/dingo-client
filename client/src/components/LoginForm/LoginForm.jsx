@@ -15,6 +15,8 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'
 export default function LoginForm() {
   const { loginUser, userBiometrics } = useContext(UserContext);
   const [ logedUser, setLogeduser ] = useState(null)
+  const [errMessage, setErrMessage] = useState('');
+
 
   const {
     handleSubmit,
@@ -24,18 +26,25 @@ export default function LoginForm() {
 
   const handleFormLoginSumbit = (formValues, event) => {
     loginUser(formValues)
-    .then(() => {
+    .then((res) => {
       setLogeduser(true)
+      console.log(res)
       event.target.reset();
     })
-    .catch((err) => {
-      console.log(err);
-    });
-  };
+    .catch((err)=>{
+      console.log(err)
+      return err
+    })
+    .then((err)=>{
+      console.log(err)
+    })
+  }
   
   return (
     <div className="loginForm_Container">
         { logedUser && userBiometrics ? (<Redirect push to="/mealPlan"/>) : (<Redirect push to="/biometric"/>) }
+        {errMessage ? <p className="biometricForm_error">{errMessage}</p> : null}
+
       <form className="loginForm_form"
         onSubmit={handleSubmit(handleFormLoginSumbit)}>
         <FontAwesomeIcon
