@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 import { useForm } from "react-hook-form";
 
@@ -9,10 +9,9 @@ import { useHistory } from "react-router-dom";
 import "./BiometricForm.scss";
 
 export default function BiometricForm() {
-
+  const [errMessage, setErrMessage] = useState('');
   const history = useHistory();
 
-  
   const {
     handleSubmit,
     register,
@@ -40,7 +39,7 @@ export default function BiometricForm() {
   };
 
   const onSubmit = (data, event) => {
-     checkIntolerances(data);
+    checkIntolerances(data);
     let userBiometrics = {
       gender: data.gender,
       age: data.age,
@@ -52,20 +51,19 @@ export default function BiometricForm() {
       mealsPerDay: data.mealsPerDay,
     };
     postBiometrics(userBiometrics)
-    .then(()=>{
-      event.target.reset();
-      history.push(`/mealPlan`);
-    })
-    .catch((err)=> {
-      console.log(err)
-    })
-    console.log( "postBiometrics", postBiometrics(userBiometrics))
+      .then(() => {
+        event.target.reset();
+        history.push(`/mealPlan`);
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrMessage(err.message);
+      });
   };
 
-
   return (
-
     <div className="biometricForm_Container">
+      {errMessage ? <p className="biometricForm_error">{errMessage}</p> : null}
       <form className="biometricForm_form" onSubmit={handleSubmit(onSubmit)}>
         {/* GENDER */}
         <label className="biometricForm_Container_label" htmlFor="gender">
@@ -170,7 +168,10 @@ export default function BiometricForm() {
           defaultValue="eat-healthier"
           {...register("objectives", { required: true })}
         >
-          <option className="biometricForm_Container_select" value="eat-healthier">
+          <option
+            className="biometricForm_Container_select"
+            value="eat-healthier"
+          >
             Eat healthier
           </option>
           <option className="biometricForm_Container_select" value="add-muscle">
@@ -264,10 +265,14 @@ export default function BiometricForm() {
           <p className="biometricForm_error">{errorMessage.required}</p>
         ) : null}
         {errors.elabTimePerDay && errors.elabTimePerDay.type === "max" ? (
-          <p className="biometricForm_error">{errorMessage.maxElabTimePerDay}</p>
+          <p className="biometricForm_error">
+            {errorMessage.maxElabTimePerDay}
+          </p>
         ) : null}
         {errors.elabTimePerDay && errors.elabTimePerDay.type === "min" ? (
-          <p className="biometricForm_error">{errorMessage.minElabTimePerDay}</p>
+          <p className="biometricForm_error">
+            {errorMessage.minElabTimePerDay}
+          </p>
         ) : null}
         <br></br>
         {/* MEALSPERDAY */}
