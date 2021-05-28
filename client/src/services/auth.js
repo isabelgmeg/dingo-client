@@ -1,9 +1,10 @@
 import axios from "axios";
+import { BASE_URL } from '../constants/index'
 
 export async function postRegister(data) {
 
     const response = await axios.post(
-      `${process.env.REACT_APP_API_URL}/auth/register`,
+      `${BASE_URL}/auth/register`,
       data,
       { withCredentials: true }
     );
@@ -12,7 +13,7 @@ export async function postRegister(data) {
 
 export async function postLogin(data) {
     const response = await axios.post(
-      `${process.env.REACT_APP_API_URL}/auth/login`,
+      `${BASE_URL}/auth/login`,
       data,
       { withCredentials: true }
     );
@@ -22,7 +23,7 @@ export async function postLogin(data) {
 
 export async function getShortProfile() {
     const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/auth/short-profile`,
+      `${BASE_URL}/auth/short-profile`,
       { withCredentials: true }
     );
     return response.data.data;
@@ -30,7 +31,7 @@ export async function getShortProfile() {
 
 export async function getLogout() {
   const response = await axios.get(
-    `${process.env.REACT_APP_API_URL}/auth/logout`,
+    `${BASE_URL}/auth/logout`,
     { withCredentials: true }
   );
   return response.data.data;
