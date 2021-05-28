@@ -10,17 +10,22 @@ import "../styles/mealPlan.scss";
 export default function MealPlanPage() {
   const { userBiometrics } = useContext(UserContext);
 
-
   const [mealPlan, setMealPlan] = useState(null);
   const [timeAffinity, setTimeAffinity] = useState(null);
   const [calsAffinity, setCalsAffinity] = useState(null);
-  
+  const [error, setError] = useState(null);
+
   const getMealPlan = () => {
     getRecipes()
       .then((res) => {
-        setMealPlan(res);
-        setTimeAffinity(getTotalElabTime(res));
-        setCalsAffinity(getTotalCalories(res));
+        console.log(res);
+        if (res.length === 0) {
+          setError("We have found no meal plan that matches your requirements");
+        } else {
+          setMealPlan(res);
+          setTimeAffinity(getTotalElabTime(res));
+          setCalsAffinity(getTotalCalories(res));
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -41,11 +46,9 @@ export default function MealPlanPage() {
         >
           Generate Menu!🥕
         </button>
+        {error ? <p className="mealPlanPage_container_error">{error}</p> : null}
         <div className="mealPlanPage_container_affinity">
-          {mealPlan &&
-          userBiometrics &&
-          timeAffinity &&
-          calsAffinity ? (
+          {mealPlan && userBiometrics && timeAffinity && calsAffinity ? (
             <p>
               We have found a meal plan for you, which has {calsAffinity}cals
               for your objective of {userBiometrics.basalMetabolicRate}cals per
@@ -59,7 +62,7 @@ export default function MealPlanPage() {
             {mealPlan !== null &&
               mealPlan.map((recipe) => (
                 <li key={recipe._id}>
-                 <RecipeCard
+                  <RecipeCard
                     recipeId={recipe._id}
                     recipeName={recipe.name}
                     ingredientsInfo={recipe.ingredientsInfo}

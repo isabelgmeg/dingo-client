@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 
@@ -8,6 +9,7 @@ import { postBiometrics } from "../../services/biometrics";
 import "./BiometricForm.scss";
 
 export default function BiometricForm() {
+  const history = useHistory();
 
   
   const {
@@ -51,6 +53,7 @@ export default function BiometricForm() {
     postBiometrics(userBiometrics)
     .then(()=>{
       event.target.reset();
+      history.push(`/profile`);
 
     })
     .catch((err)=> {

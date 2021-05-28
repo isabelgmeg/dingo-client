@@ -150,7 +150,7 @@ $medium-gray: #b2b7c6;
     @include text-18-white-buttons;
 }
 @mixin errorMessage {
-    color: #bdbdbdc2;
+    color: #e4e4e4c2;
       background-color:#56565685;
       border-radius: 12px;
       padding: 5px;

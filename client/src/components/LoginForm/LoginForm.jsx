@@ -13,7 +13,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function LoginForm() {
-  const { loginUser, userBiometrics } = useContext(UserContext);
+  const { loginUser, user } = useContext(UserContext);
   const [ logedUser, setLogeduser ] = useState(null)
 
   const {
@@ -35,7 +35,7 @@ export default function LoginForm() {
   
   return (
     <div className="loginForm_Container">
-        { logedUser && userBiometrics ? (<Redirect push to="/mealPlan"/>) : (<Redirect push to="/biometric"/>) }
+        { user && logedUser ? (<Redirect push to="/biometric"/>) : null}
       <form className="loginForm_form"
         onSubmit={handleSubmit(handleFormLoginSumbit)}>
         <FontAwesomeIcon
