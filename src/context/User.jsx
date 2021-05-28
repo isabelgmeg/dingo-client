@@ -96,6 +96,7 @@ export function useUser() {
     getLogout().then(() =>{
        setUser(null)
        setBiometrics(null)
+       setUserFavs(null)
       });
     console.log("bye");
   }
