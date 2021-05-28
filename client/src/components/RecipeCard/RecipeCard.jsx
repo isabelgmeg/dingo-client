@@ -113,7 +113,7 @@ export default function RecipeCard({
         </span>
       </div>
         <div className="recipeCard_intolerances">
-          {intolerances} meal
+          Intolerance: {intolerances}
         </div>
       <div className="recipeCard_ingredients">
         <ul className="recipeCard_ingredients_list">
