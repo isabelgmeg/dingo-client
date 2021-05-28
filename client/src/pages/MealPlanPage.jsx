@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../context/User";
-import { getRecipes } from "../services/recipes";
+import { getRecipes, getRecipesOptionB } from "../services/recipes";
 import { getTotalCalories, getTotalElabTime } from "../services/utils";
 
 import NavBar from "../components/NavBar/NavBar";
@@ -32,6 +32,23 @@ export default function MealPlanPage() {
       });
   };
 
+  const getMealPlanB = () => {
+    getRecipesOptionB()
+      .then((res) => {
+        console.log(res);
+        if (res.length === 0) {
+          setError("We have found no meal plan that matches your requirements");
+        } else {
+          setMealPlan(res);
+          setTimeAffinity(getTotalElabTime(res));
+          setCalsAffinity(getTotalCalories(res));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="mealPlanPage">
       <NavBar />
@@ -46,7 +63,18 @@ export default function MealPlanPage() {
         >
           Generate Menu!🥕
         </button>
-        {error ? <p className="mealPlanPage_container_error">{error}</p> : null}
+        {error ? 
+        <div>
+          <p className="mealPlanPage_container_error">{error}</p>
+          <button
+          className="mealPlanPage_container_error_button"
+          type="submit"
+          onClick={getMealPlanB}
+        >
+          Generate Plan B Menu!🥕
+        </button>
+        </div>
+         : null}
         <div className="mealPlanPage_container_affinity">
           {mealPlan && userBiometrics && timeAffinity && calsAffinity ? (
             <p>
@@ -64,6 +92,7 @@ export default function MealPlanPage() {
                 <li key={recipe._id}>
                   <RecipeCard
                     recipeId={recipe._id}
+                    intolerances={recipe.intolerances[0]}
                     recipeName={recipe.name}
                     ingredientsInfo={recipe.ingredientsInfo}
                     elabTime={recipe.elabTime}
