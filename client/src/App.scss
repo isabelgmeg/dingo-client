@@ -1,11 +1,16 @@
-
 @import "./styles/utilities.scss";
 
 .App {
-    max-width: 480px;
-    min-width: 300px;
-    min-height: 926px;
-    align-items: center;
-    margin: auto;
-    background-color: $turquoise;
+  max-width: 480px;
+  min-width: 300px;
+  min-height: 926px;
+  align-items: center;
+  margin: auto;
+  background-color: #06b5de;
+  background-image: linear-gradient(
+    160deg,
+    #06b5de 0%,
+    #80d0c7 63%,
+    #ffffff 100%
+  );
 }

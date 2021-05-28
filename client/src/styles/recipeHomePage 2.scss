@@ -1,0 +1,30 @@
+@import '../styles/utilities.scss';
+
+.recipeHome{
+    &_searchbox{
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        &_input{
+            width: 80%;
+            height: 1.5rem;
+            border-radius: 14px;
+            outline: none;
+            border: 0;
+            cursor: pointer;
+            padding-bottom: 5px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-decoration: solid;
+            color: $dark-navy;
+            font-size: 1rem;
+        }
+                &_icon{
+                    padding-left: 1rem;
+                    color: white;
+                }
+    }
+    
+}

@@ -12,6 +12,9 @@
     max-width: 300px;
     align-items: center;
     margin: auto;
+    &_error{
+        @include errorMessage
+    }
     &_cardsContainer{
         padding-bottom: 1rem;
     }
@@ -21,6 +24,7 @@
     &_text{
         @include modern-display-tittle;
         padding: 1rem;
+        color: $dark-navy;
     }
     &_affinity{
         @include text-16-gray;
