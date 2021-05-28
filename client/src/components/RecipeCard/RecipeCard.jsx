@@ -19,11 +19,14 @@ export default function RecipeCard({
   calories,
   instructions,
   picture,
+  intolerances,
+
 }) {
   const { deleteFav, addFav } = useContext(UserContext);
   const [isRecipeSaved, setIsRecipeSaved] = useState(null);
   const [classNameButton, setClassNameButton] = useState("");
 
+  console.log(intolerances)
   const addFavButton = (id) => {
     addFav(id)
       .then(() => {
@@ -109,6 +112,9 @@ export default function RecipeCard({
           {proteins} proteins
         </span>
       </div>
+        <div className="recipeCard_intolerances">
+          {intolerances} meal
+        </div>
       <div className="recipeCard_ingredients">
         <ul className="recipeCard_ingredients_list">
           {ingredientsInfo !== undefined &&

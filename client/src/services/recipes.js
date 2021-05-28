@@ -29,3 +29,10 @@ export async function getRecipeIdByName(recipeName) {
   return res.data.data;
 }
 
+
+export async function getRecipesOptionB() {
+  const res = await axios.get(`${process.env.REACT_APP_API_URL}/recipes/getMealPlanOptionB`, {
+    withCredentials: true,
+  });
+  return res.data.data;
+}

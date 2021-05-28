@@ -72,17 +72,24 @@
   &_carbsProteins {
     @include recipe-text;
     width: 90%;
-    display: inline-flex;
+    display: flex;
     padding: 0.5rem;
     justify-content: space-between;
+    padding-bottom: 0;
     &_carbs {
       width: 50%;
       text-align: left;
     }
-    &_proteins ~ {
+    &_proteins {
       width: 50%;
+      text-align: right;
     }
   }
+      &_intolerances{
+        display: block;
+        color: $dark-navy;
+        @include recipe-text;
+      }
   &_ingredients {
     margin: 0.2rem;
     padding-bottom: 0.3rem;

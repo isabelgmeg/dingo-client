@@ -32,9 +32,10 @@ export default function BiometricForm() {
     }
     if (data.nuts) {
       intolerancesFromUser.push("nut-alergy");
-    } else {
+    } if( !data.nuts && !data.lactose && !data.gluten && data.fructose) {
       intolerancesFromUser.push("none");
     }
+    console.log(intolerancesFromUser)
     return intolerancesFromUser;
   };
 
