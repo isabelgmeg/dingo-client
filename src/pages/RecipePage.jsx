@@ -38,6 +38,7 @@ export default function RecipePage() {
           calories={recipe.calories}
           instructions={recipe.instructions}
           picture={recipe.picture}
+          intolerances={recipe.intolerances}
         />
       </div>
     </div>
