@@ -1,0 +1,33 @@
+@import "../../styles/utilities.scss";
+
+
+body{
+    background-color: $off-white;
+}
+
+.profile_buttonSection{
+    width: 80%;
+    margin: auto;
+}
+.profile_buttonSection{
+    width: 100%;
+    display: flex;
+    height: 140px;
+    border-radius: 15px;
+    background-image: linear-gradient(to right top, #00b9e6, #19bee2, #2dc3de, #3fc7d9, #50cbd5, #6bd1d0, #83d6cc, #99dbca, #bae3cc, #d6ead5, #ecf2e4, #fcfcf7);
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around;
+    margin-top: 30px;
+    &_text{
+        
+    }
+}
+
+.profile_buttonSection_image{
+    height: 130px;
+}
+img{
+    height: 100%;
+    width: auto;
+}
