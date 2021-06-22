@@ -13,6 +13,7 @@ import RecipePage from "./pages/RecipePage";
 import NavBar from "./components/NavBar/NavBar";
 import ProfilePage from "./pages/ProfilePage";
 import RecipeHomePage from './pages/RecipeHomePage';
+import ProfileSection from "./pages/ProfileSection"
 
 import WithAuthentication from "./components/hocs/WithAuthentication";
 
@@ -44,6 +45,11 @@ function App() {
           <Route exact path="/profile">
           <WithAuthentication>
             <ProfilePage />
+          </WithAuthentication>
+          </Route>
+          <Route exact path="/profileSection">
+          <WithAuthentication>
+            <ProfileSection />
           </WithAuthentication>
           </Route>
             <Route exact path="/mealPlan">

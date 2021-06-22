@@ -7,7 +7,6 @@ import MiniCard from "../components/MiniCard/MiniCard";
 import NavBar from "../components/NavBar/NavBar";
 import WeightChart from "../components/WeightChart/WeightChart";
 import BiometricData from "../components/BiometricData/BiometricData";
-
 import "../styles/profile.scss";
 
 export default function ProfilePage() {
@@ -60,12 +59,13 @@ export default function ProfilePage() {
           bmr={userBiometrics.basalMetabolicRate}
         />
       ) : null}
+
+
       <div className="profilePage_weightChart">
         <p className="profilePage_weightText">
           Add your current weight and see your progress!
         </p>
         <div className="profilePage_modifyWeight">
-          <p>PRUEBAAAAAAAAAAA</p>
           <form
             className="profilePage_modifyWeight_form"
             onSubmit={handleSubmit(onSubmit)}
