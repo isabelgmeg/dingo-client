@@ -30,8 +30,7 @@ export default function ProfilePage() {
     newWeightUser(weight)
       .then((res) => {
         event.target.reset();
-        setNewWeight(weight)
-
+        setNewWeight(weight);
       })
       .catch((error) => {
         console.log(error);
@@ -61,38 +60,41 @@ export default function ProfilePage() {
           bmr={userBiometrics.basalMetabolicRate}
         />
       ) : null}
-      <p className="profilePage_weightText">
-        Add your current weight and see your progress!
-      </p>
-      <div className="profilePage_modifyWeight">
-        <form
-          className="profilePage_modifyWeight_form"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <label className="profilePage_modifyWeight_label" htmlFor="weight">
-            {""}
-          </label>
-          <input
-            className="profilePage_modifyWeight_input"
-            id="weight"
-            type="number"
-            placeholder="Select your weight in kg"
-            {...register("weight", { required: true, max: 300, min: 20 })}
-          />
-          {errors.weight && errors.weight.type === "min" ? (
-            <p className="biometricForm_error">{errorMessage.minWeight}</p>
-          ) : null}
-          {errors.weight && errors.weight.type === "max" ? (
-            <p className="biometricForm_error">{errorMessage.maxWeight}</p>
-          ) : null}
-          <button className="profilePage_modifyWeight_button" type="submit">
-            Submit
-          </button>
-        </form>
+      <div className="profilePage_weightChart">
+        <p className="profilePage_weightText">
+          Add your current weight and see your progress!
+        </p>
+        <div className="profilePage_modifyWeight">
+          <p>PRUEBAAAAAAAAAAA</p>
+          <form
+            className="profilePage_modifyWeight_form"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <label className="profilePage_modifyWeight_label" htmlFor="weight">
+              {""}
+            </label>
+            <input
+              className="profilePage_modifyWeight_input"
+              id="weight"
+              type="number"
+              placeholder="Select your weight in kg"
+              {...register("weight", { required: true, max: 300, min: 20 })}
+            />
+            {errors.weight && errors.weight.type === "min" ? (
+              <p className="biometricForm_error">{errorMessage.minWeight}</p>
+            ) : null}
+            {errors.weight && errors.weight.type === "max" ? (
+              <p className="biometricForm_error">{errorMessage.maxWeight}</p>
+            ) : null}
+            <button className="profilePage_modifyWeight_button" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+        {userBiometrics !== null ? (
+          <WeightChart data={userBiometrics.weightProgress} />
+        ) : null}
       </div>
-      {userBiometrics !== null ? (
-        <WeightChart data={userBiometrics.weightProgress} />
-      ) : null}
       <div className="profilePage_container_recipes">
         <ul className="profilePage_container_recipes_item">
           {userFavs &&
