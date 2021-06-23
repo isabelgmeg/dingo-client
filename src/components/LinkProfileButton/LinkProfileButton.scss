@@ -1,16 +1,9 @@
 @import "../../styles/utilities.scss";
 
-
-body{
-    background-color: $off-white;
-}
-
-.profile_buttonSection{
-    width: 80%;
+.linkButton{
     margin: auto;
-}
-.profile_buttonSection{
     width: 100%;
+    max-width: 370px;
     display: flex;
     height: 140px;
     border-radius: 15px;
@@ -20,14 +13,34 @@ body{
     justify-content: space-around;
     margin-top: 30px;
     &_text{
-        
+        align-self: center;
+        padding-left: 1.5rem;
+        &_section{
+            @include text-16-white;
+            font-size: 1.5rem;
+            margin: 0px;
+            
+        }
+        &_link{
+            text-decoration: none;
+            &_text{
+                font-size: 0.8rem;
+                color: $turquoise;
+                background-color: $off-white;
+                height: 100%;
+                width: fit-content;
+                padding: 5px;
+                border-radius: 5px;
+            }
+        }
     }
-}
-
-.profile_buttonSection_image{
-    height: 130px;
-}
-img{
-    height: 100%;
-    width: auto;
+    &_container{
+        position: relative;
+        left: 10px;
+        height: 110px;
+        img{
+            height: 100%;
+            width: auto;
+        }
+    }
 }
