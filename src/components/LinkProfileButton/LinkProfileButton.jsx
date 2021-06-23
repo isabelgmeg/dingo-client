@@ -6,15 +6,15 @@ export default function LinkProfileButton(props) {
   const { section, image, sectionText } = props;
 
   return (
-    <div className="profile_buttonSection">
-      <div className="profile_buttonSection_text">
-        <p>{sectionText}</p>
-        <Link to={`/profile/${section}`} className="profile_buttonSection_text_button">
-          <p className="profile_buttonSection_text_button">Go there! </p>
+    <div className="linkButton">
+      <div className="linkButton_text">
+        <p className="linkButton_text_section">{sectionText}</p>
+        <Link to={`/profile/${section}`} className="linkButton_text_link">
+          <p className="linkButton_text_link_text">Go there! </p>
         </Link>
       </div>
-      <div className={`profile_buttonSection_image`}>
-          <img src={image} alt="sectionText" />
+      <div className="linkButton_container">
+          <img src={image} alt="linkButton_container_image" />
       </div>
     </div>
   );
