@@ -1,0 +1,10 @@
+@import "../styles/utilities.scss";
+
+.profileSection {
+  background-color: $off-white;
+  &_container {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 3rem;
+  }
+}
