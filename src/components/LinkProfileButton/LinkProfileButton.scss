@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 370px;
     display: flex;
-    height: 140px;
+    height: 120px;
     border-radius: 15px;
     background-image: linear-gradient(to right top, #00b9e6, #19bee2, #2dc3de, #3fc7d9, #50cbd5, #6bd1d0, #83d6cc, #99dbca, #bae3cc, #d6ead5, #ecf2e4, #fcfcf7);
     flex-direction: row;
@@ -15,10 +15,12 @@
     &_text{
         align-self: center;
         padding-left: 1.5rem;
+        
         &_section{
             @include text-16-white;
             font-size: 1.5rem;
             margin: 0px;
+            font-weight: lighter;
             
         }
         &_link{

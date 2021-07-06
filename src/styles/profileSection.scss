@@ -2,9 +2,11 @@
 
 .profileSection {
   background-color: $off-white;
+  min-height: 100vh;
   &_container {
-    width: 90%;
+    width: 80%;
     margin: auto;
     margin-bottom: 3rem;
+    margin-top: 5rem;
   }
 }
