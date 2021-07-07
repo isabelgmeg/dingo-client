@@ -14,6 +14,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ProfilePage from "./pages/ProfilePage";
 import RecipeHomePage from './pages/RecipeHomePage';
 import ProfileSection from "./pages/ProfileSection"
+import ProfileWeightSection from "./pages/ProfileWeightSection"
 
 import WithAuthentication from "./components/hocs/WithAuthentication";
 
@@ -42,6 +43,8 @@ function App() {
               <BiometricPage />
             </WithAuthentication>
           </Route>
+
+          {/* PROFILE SECTION */}
           <Route exact path="/profile">
           <WithAuthentication>
             <ProfilePage />
@@ -50,6 +53,11 @@ function App() {
           <Route exact path="/profileSection">
           <WithAuthentication>
             <ProfileSection />
+          </WithAuthentication>
+          </Route>
+          <Route exact path="/profile/weightProgress">
+          <WithAuthentication>
+            <ProfileWeightSection />
           </WithAuthentication>
           </Route>
             <Route exact path="/mealPlan">

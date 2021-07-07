@@ -70,8 +70,10 @@ export function useUser() {
   }
 
   async function newWeightUser(data) {
+    console.log(data)
     addNewWeight(data).then((res) => {
       setBiometrics(res);
+      console.log("user data after new weight",userBiometrics)
     });
   }
 
